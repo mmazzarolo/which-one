@@ -1,0 +1,95 @@
+.Tile {
+  display: flex;
+  flex: 1;
+  flex-basis: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  user-select: none;
+  margin: 2%;
+}
+
+.Tile-show {
+  animation-name: scale-up-center;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  animation-fill-mode: both;
+}
+
+.Tile-hide {
+  animation-name: scale-down-center;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  animation-fill-mode: both;
+}
+
+.Tile-shadow {
+  position: absolute;
+  height: 50%;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  border-radius: 10% / 20%;
+  background: #2980b9;
+}
+
+.Tile-burst {
+  position: absolute;
+  height: 50%;
+  left: 50%;
+  bottom: 0px;
+}
+
+.Tile-content {
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 90%;
+  background-color: #3498db;
+  border-radius: 10%;
+  transition: all 0.1s;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vh;
+  color: white;
+}
+
+.Tile:active .Tile-content {
+  transform: translate(0px, 10%);
+  border-bottom: 1px solid #2980b9;
+}
+
+.Tile-touched {
+  animation-name: scale-down-center;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+
+.Tile-star {
+  display: none;
+}
+
+.Tile-hint.Tile-marked .Tile-star {
+  display: initial;
+}
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down-center {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}

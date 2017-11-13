@@ -1,0 +1,15 @@
+.Splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Splash > h1 {
+  font-size: 60px;
+  color: #61c8f2;
+  animation: tracking-in-expand-out-contract 3s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  user-select: none;
+}

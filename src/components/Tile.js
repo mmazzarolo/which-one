@@ -1,13 +1,12 @@
 /* @flow */
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { observable } from 'mobx';
+// import ReactDOM from 'react-dom';
 import { observer } from 'mobx-react';
-import mojs from 'mo-js';
+// import mojs from 'mo-js';
 import utils from '../utils';
 import './Tile.css';
 
-import type { GameStatus, Stores } from '../types';
+import type { GameStatus } from '../types';
 
 type Props = {
   status: GameStatus,
@@ -17,18 +16,8 @@ type Props = {
   onClick: () => mixed,
 };
 
-type AnimationStatus = 'show' | 'hide';
-
-const FOREGROUND_COLOR_1 = '#3498db';
-const FOREGROUND_COLOR_2 = '#EA4258';
-
 @observer
 export default class Splash extends Component<Props> {
-  @observable animationStatus: AnimationStatus = 'show';
-  @observable foregroundColor: string = FOREGROUND_COLOR_1;
-  @observable backgroundColor: string = utils.getDifferentLuminance(FOREGROUND_COLOR_1, -0.2);
-  @observable content: ?string = null;
-
   _burstRef: any = null;
 
   // componentWillMount() {
@@ -68,25 +57,6 @@ export default class Splash extends Component<Props> {
   //   star.tune({ parent: a });
   //   timeline.replay();
   // }
-
-  // _animate = async () => {
-  //   await delay(300);
-  //   if (this.props.marked) {
-  //     this.animationStatus = 'hide';
-  //     await delay(300);
-  //     this.foregroundColor = FOREGROUND_COLOR_2;
-  //     this.backgroundColor = getDifferentLuminance(FOREGROUND_COLOR_2, -0.2);
-  //     this.content = '★';
-  //     this.animationStatus = 'show';
-  //     await delay(600);
-  //     this.animationStatus = 'hide';
-  //     await delay(300);
-  //     this.foregroundColor = FOREGROUND_COLOR_1;
-  //     this.backgroundColor = getDifferentLuminance(FOREGROUND_COLOR_1, -0.2);
-  //     this.content = null;
-  //     this.animationStatus = 'show';
-  //   }
-  // };
 
   get hinting(): boolean {
     if (this.props.marked) {

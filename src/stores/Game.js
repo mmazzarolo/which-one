@@ -4,10 +4,13 @@ import { times } from 'lodash';
 import Tile from '../models/Tile';
 import constants from '../config/constants';
 import utils from '../utils';
+import RouterStore from './Router';
 
 import type { GameStatus } from '../types';
 
 export default class GameStore {
+  routerStore: RouterStore;
+
   @observable tiles: Tile[] = [];
   @observable status: GameStatus = 'SHOWING_INITIAL_TILES';
   @observable running: boolean = false;
@@ -16,20 +19,27 @@ export default class GameStore {
   @observable level: number = 0;
   @observable score: number = 0;
 
-  constructor() {
+  constructor(routerStore: RouterStore) {
     autorun(() => {
       console.log('status: ', this.status);
     });
+    this.routerStore = routerStore;
   }
 
   @action
   startGame = async () => {
-    // Called on every round start (round, not game): it builds the board's tiles
-    this.level = 1;
+    this.level = 0;
     this.score = 0;
     this.running = true;
-    this.disabled = true;
     this.valid = true;
+    this.startRound();
+  };
+
+  @action
+  startRound = async () => {
+    this.status = 'SHOWING_INITIAL_TILES';
+    this.level++;
+    this.disabled = true;
     // $FlowFixMe
     this.tiles.clear();
     const tiles = [];
@@ -51,6 +61,7 @@ export default class GameStore {
     this.status = 'HIDING_HINTS';
     await utils.delay(300);
     this.status = 'SHOWING_TILES';
+    await utils.delay(100);
     this.disabled = false;
   };
 
@@ -59,6 +70,21 @@ export default class GameStore {
     const tile = this.tiles[tileId];
     if (tile) {
       tile.touch();
+      if (tile.marked) {
+        this.score += 10;
+        if (this.markedTilesLeft.length === 0) {
+          this.disabled = true;
+          this.status = 'GIVING_WIN_FEEDBACK';
+          await utils.delay(1000);
+          this.startRound();
+        }
+      } else {
+        this.valid = false;
+        this.disabled = true;
+        this.status = 'GIVING_LOST_FEEDBACK';
+        await utils.delay(2000);
+        this.routerStore.navigateToScore();
+      }
     }
   };
 
@@ -80,5 +106,15 @@ export default class GameStore {
   @computed
   get numberOfTiles(): number {
     return Math.pow(this.boardSize, 2);
+  }
+
+  @computed
+  get primaryColor(): string {
+    return '#3498db';
+  }
+
+  @computed
+  get accentColor(): string {
+    return '#EA4258';
   }
 }

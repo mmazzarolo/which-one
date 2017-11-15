@@ -1,0 +1,51 @@
+.Score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Score-label {
+  color: white;
+  font-size: 30px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.Score-points {
+  background: white;
+  padding: 2px 20px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 36px;
+}
+
+.Score-retry {
+  position: absolute;
+  bottom: 30px;
+  animation: scale-in-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 1s;
+  transform: scale(0);
+  background: white;
+  border-radius: 36px;
+  padding: 2px 20px;
+  font-weight: bold;
+  font-size: 22px;
+  border: 3px solid;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px white, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

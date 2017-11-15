@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Splash from './Splash';
 import { inject, observer } from 'mobx-react';
 import Playground from './Playground';
+import Score from './Score';
 import './Router.css';
 
 import type { Stores } from '../types';
@@ -30,6 +31,9 @@ export default class Root extends Component<Props> {
         break;
       case 'PLAYGROUND':
         content = <Playground />;
+        break;
+      case 'SCORE':
+        content = <Score />;
         break;
       default:
         content = <div />;

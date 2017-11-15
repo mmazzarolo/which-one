@@ -13,6 +13,8 @@ type Props = {
   status: GameStatus,
   score: number,
   disabled: boolean,
+  primaryColor: string,
+  accentColor: string,
   startGame: () => mixed,
   handleTileClick: number => mixed,
 };
@@ -23,6 +25,8 @@ const mapStoresToProps = (stores: Stores) => ({
   score: stores.game.score,
   disabled: stores.game.disabled,
   startGame: stores.game.startGame,
+  primaryColor: stores.game.primaryColor,
+  accentColor: stores.game.accentColor,
   handleTileClick: stores.game.handleTileClick,
 });
 
@@ -34,6 +38,8 @@ export default class Splash extends Component<Props> {
     status: 'SHOWING_INITIAL_TILES',
     score: 0,
     disabled: false,
+    primaryColor: 'blue',
+    accentColor: 'red',
     startGame: () => null,
     handleTileClick: () => null,
   };
@@ -43,7 +49,7 @@ export default class Splash extends Component<Props> {
   }
 
   render() {
-    const { board, handleTileClick, status, disabled } = this.props;
+    const { board, handleTileClick, status, disabled, primaryColor, accentColor } = this.props;
     const boardCells = board.map((row, rowIndex) => {
       return row.map((col, colIndex) => {
         const tile = col;
@@ -54,6 +60,8 @@ export default class Splash extends Component<Props> {
             touched={tile.touched}
             status={status}
             disabled={disabled}
+            primaryColor={primaryColor}
+            accentColor={accentColor}
             onClick={e => handleTileClick(tile.id)}
           />
         );

@@ -17,4 +17,6 @@ export type GameStatus =
   | 'HIDING_HINTS'
   | 'SHOWING_TILES'
   | 'RUNNING'
-  | 'HIDING_TILES';
+  | 'HIDING_TILES'
+  | 'GIVING_WIN_FEEDBACK'
+  | 'GIVING_LOST_FEEDBACK';

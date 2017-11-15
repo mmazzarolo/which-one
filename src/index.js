@@ -8,8 +8,8 @@ import GameStore from './stores/Game';
 import RouterStore from './stores/Router';
 import './index.css';
 
-const gameStore = new GameStore();
 const routerStore = new RouterStore();
+const gameStore = new GameStore(routerStore);
 
 ReactDOM.render(
   <Provider game={gameStore} router={routerStore}>

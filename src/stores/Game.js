@@ -12,7 +12,7 @@ export default class GameStore {
   routerStore: RouterStore;
 
   @observable tiles: Tile[] = [];
-  @observable status: GameStatus = 'SHOWING_INITIAL_TILES';
+  @observable status: GameStatus = 'SHOWING_BOARD';
   @observable running: boolean = false;
   @observable valid: boolean = false;
   @observable disabled: boolean = false;
@@ -76,13 +76,17 @@ export default class GameStore {
           this.disabled = true;
           this.status = 'GIVING_WIN_FEEDBACK';
           await utils.delay(1000);
+          this.status = 'HIDING_TILES';
+          await utils.delay(1000);
           this.startRound();
         }
       } else {
         this.valid = false;
         this.disabled = true;
         this.status = 'GIVING_LOST_FEEDBACK';
-        await utils.delay(2000);
+        await utils.delay(1000);
+        this.status = 'HIDING_TILES';
+        await utils.delay(1000);
         this.routerStore.navigateToScore();
       }
     }

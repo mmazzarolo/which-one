@@ -40,7 +40,7 @@ export default class Splash extends Component<Props> {
         'GIVING_LOST_FEEDBACK',
       ].includes(this.props.status);
     } else {
-      return true;
+      return !['HIDING_TILES'].includes(this.props.status);
     }
   }
 

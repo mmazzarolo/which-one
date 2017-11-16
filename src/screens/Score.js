@@ -1,6 +1,8 @@
 /* @flow */
 import React, { Component } from 'react';
+import { observable } from 'mobx';
 import { inject, observer } from 'mobx-react';
+import utils from '../utils';
 import './Score.css';
 
 import type { Stores } from '../types';
@@ -26,10 +28,21 @@ export default class Splash extends Component<Props> {
     navigateToPlayground: () => null,
   };
 
+  @observable exiting: boolean = false;
+
+  _handleRetryClick = async () => {
+    this.exiting = true;
+    await utils.delay(500);
+    this.props.navigateToPlayground();
+  };
+
   render() {
     const { primaryColor, navigateToPlayground } = this.props;
     return (
-      <div className={'Score'} style={{ backgroundColor: primaryColor }}>
+      <div
+        className={`Score ${this.exiting ? 'Score-exiting' : ''}`}
+        style={{ backgroundColor: primaryColor }}
+      >
         <p className={'Score-label'}>Score: </p>
         <p className={'Score-points'} style={{ color: primaryColor }}>
           {this.props.score}
@@ -37,7 +50,7 @@ export default class Splash extends Component<Props> {
         <div
           className={'Score-retry'}
           style={{ color: primaryColor, borderColor: primaryColor }}
-          onClick={navigateToPlayground}
+          onClick={this._handleRetryClick}
         >
           Restart
         </div>

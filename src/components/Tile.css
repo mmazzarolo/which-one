@@ -77,7 +77,7 @@
   display: initial;
 }
 
-.Tile-unmarked.Tile-touched {
+.Tile-unmarked.Tile-touched.Tile-show {
   animation: wobble-hor-bottom 0.8s both;
 }
 
@@ -85,60 +85,4 @@
   animation: swirl-out-bck 0.6s ease-in both;
 }
 
-@keyframes scale-up-center {
-  0% {
-    transform: scale(0);
-  }
 
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes scale-down-center {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-}
-
-@keyframes wobble-hor-bottom {
-  0%,
-  100% {
-    transform: translateX(0%);
-    transform-origin: 50% 50%;
-  }
-
-  15% {
-    transform: translateX(-30px) rotate(-6deg);
-  }
-
-  30% {
-    transform: translateX(15px) rotate(6deg);
-  }
-
-  45% {
-    transform: translateX(-15px) rotate(-3.6deg);
-  }
-
-  60% {
-    transform: translateX(9px) rotate(2.4deg);
-  }
-
-  75% {
-    transform: translateX(-6px) rotate(-1.2deg);
-  }
-}
-
-@keyframes swirl-out-bck {
-  0% {
-    transform: rotate(0) scale(1);
-  }
-
-  100% {
-    transform: rotate(-540deg) scale(0);
-  }
-}

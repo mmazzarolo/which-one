@@ -35,7 +35,7 @@ const mapStoresToProps = (stores: Stores) => ({
 export default class Splash extends Component<Props> {
   static defaultProps = {
     board: [],
-    status: 'SHOWING_INITIAL_TILES',
+    status: 'SHOWING_BOARD',
     score: 0,
     disabled: false,
     primaryColor: 'blue',

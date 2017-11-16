@@ -1,6 +1,6 @@
 /* @flow */
 import { action, autorun, computed, observable } from 'mobx';
-import { times } from 'lodash';
+import { range, sampleSize, times } from 'lodash';
 import Tile from '../models/Tile';
 import constants from '../config/constants';
 import utils from '../utils';
@@ -12,7 +12,7 @@ export default class GameStore {
   routerStore: RouterStore;
 
   @observable tiles: Tile[] = [];
-  @observable status: GameStatus = 'SHOWING_BOARD';
+  @observable status: GameStatus = 'SHOWING_INITIAL_TILES';
   @observable running: boolean = false;
   @observable valid: boolean = false;
   @observable disabled: boolean = false;
@@ -43,11 +43,12 @@ export default class GameStore {
     // $FlowFixMe
     this.tiles.clear();
     const tiles = [];
+    const markedTilesIndexes = sampleSize(range(this.numberOfTiles), this.numberOfMarkedTiles);
     times(this.numberOfTiles, n => {
       const id = n;
       const row = Math.floor(n / this.boardSize);
       const col = n % this.boardSize;
-      const marked = Math.random() >= 0.5;
+      const marked = markedTilesIndexes.includes(n);
       const tile = new Tile(id, row, col, marked);
       tiles.push(tile);
     });
@@ -93,8 +94,36 @@ export default class GameStore {
   };
 
   @computed
+  get numberOfMarkedTiles(): number {
+    if (this.level + 2 <= 10) {
+      return this.level + 2;
+    } else {
+      return 10;
+    }
+  }
+
+  @computed
   get boardSize(): number {
-    return this.level + 3;
+    switch (this.numberOfMarkedTiles) {
+      case 3:
+        return 3;
+      case 4:
+        return 3;
+      case 5:
+        return 4;
+      case 6:
+        return 4;
+      case 7:
+        return 4;
+      case 8:
+        return 5;
+      case 9:
+        return 5;
+      case 10:
+        return 5;
+      default:
+        return 6;
+    }
   }
 
   @computed

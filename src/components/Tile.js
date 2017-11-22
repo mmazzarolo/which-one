@@ -63,11 +63,7 @@ export default class Splash extends Component<Props> {
     const tileShadowBackgroundColor = this.color;
     const tileBackgroundColor = utils.getDifferentLuminance(this.color, 0.2);
     return (
-      <div
-        className={`Tile ${classNames.join(' ')}`}
-        onClick={onClick}
-        ref={ref => (this._burstRef = ref)}
-      >
+      <div className={`Tile ${classNames.join(' ')}`} onClick={onClick}>
         <div className={`Tile-shadow`} style={{ backgroundColor: tileShadowBackgroundColor }} />
         <div className={`Tile-content`} style={{ backgroundColor: tileBackgroundColor }}>
           <div className={`Tile-star`}>{'★'}</div>

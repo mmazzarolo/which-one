@@ -18,8 +18,6 @@ type Props = {
 
 @observer
 export default class Splash extends Component<Props> {
-  _burstRef: any = null;
-
   get hinting(): boolean {
     if (this.props.marked) {
       return (

@@ -2711,9 +2711,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@0.59.0:
-  version "0.59.0"
-  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.59.0.tgz#8c151ee7f09f1deed9bf0b9d1f2e8ab9d470f1bb"
+flow-bin@0.60.1:
+  version "0.60.1"
+  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.60.1.tgz#0f4fa7b49be2a916f18cd946fc4a51e32ffe4b48"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -4434,9 +4434,9 @@ mobx-react@4.3.5:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-mobx@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.npmjs.org/mobx/-/mobx-3.3.2.tgz#e912a9f7c82b2df69f1abe6515ecaa551828a024"
+mobx@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npmjs.org/mobx/-/mobx-3.4.0.tgz#b97f98d973d1be26d185d3cfc78053dd4829ec95"
 
 ms@2.0.0:
   version "2.0.0"

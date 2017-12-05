@@ -65,13 +65,6 @@ export default class Splash extends Component<Props> {
         <div className={`Tile-shadow`} style={{ backgroundColor: tileShadowBackgroundColor }} />
         <div className={`Tile-content`} style={{ backgroundColor: tileBackgroundColor }}>
           <div className={`Tile-star`}>{'★'}</div>
-          <div class="smiley">
-            <div class="eyes">
-              <div class="eye" />
-              <div class="eye" />
-            </div>
-            <div class="mouth" />
-          </div>
         </div>
       </div>
     );

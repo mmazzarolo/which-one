@@ -1,4 +1,3 @@
-// https://codepen.io/joekuan/pen/jwyzeP
 .Tile {
   display: flex;
   flex: 1;
@@ -84,84 +83,4 @@
 
 .Tile-marked.Tile-touched {
   animation: swirl-out-bck 0.6s ease-in both;
-}
-
-.smiley {
-  padding: 25px;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.mouth {
-  width: 60%;
-  height: 30%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  margin-left: -30%;
-  background: rgba(0, 0, 0, 0.3);
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.eyes {
-  width: 100%;
-  margin-top: 15%;
-  box-sizing: border-box;
-  padding: 0 5px;
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.eyes .eye {
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  float: left;
-  border-radius: 100%;
-  position: relative;
-}
-
-.eyes .eye:nth-of-type(2) {
-  float: right;
-}
-
-.eyes .eye::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 0%;
-  height: 0%;
-  background: rgba(0, 0, 0, 0.3);
-  transform: rotate(0deg);
-  top: -15px;
-  left: 5px;
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.eyes .eye:first-of-type::after {
-  transform: rotate(0deg);
-  left: auto;
-  right: 5px;
-}
-
-/* Normal animation */
-.mouth,
- {
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-  height: 10%;
-  width: 40%;
-  bottom: 25%;
-  margin-left: -20%;
-}
-
-.eyes {
-  margin-top: 30%;
 }

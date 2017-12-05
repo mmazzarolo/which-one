@@ -70,6 +70,9 @@ export default class Splash extends Component<Props> {
 
     return (
       <div className={'Playground'}>
+        <div className={'Playground-score'} style={{ color: primaryColor }}>
+          <p className={'Playground-score-text'}>{`Score: ${this.props.score}`}</p>
+        </div>
         <div className={'Playground-board'}>
           {boardCells.map((row, rowIndex) => {
             return (

@@ -2,15 +2,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.Playground-score {
+  position: absolute;
+  height: 15vmin;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vh;
 }
 
 .Playground-board {
   display: flex;
   flex-direction: column;
-  width: 90vmin;
-  height: 90vmin;
+  width: 70vmin;
+  height: 70vmin;
+}
+
+@media (max-aspect-ratio: 3/4) {
+  .Playground-score {
+    height: 15vh;
+  }
+
+  .Playground-board {
+    display: flex;
+    flex-direction: column;
+    width: 80vmin;
+    height: 80vmin;
+  }
+}
+
+@media (max-aspect-ratio: 2/3) {
+  .Playground-score {
+    height: 20vh;
+  }
+
+  .Playground-board {
+    display: flex;
+    flex-direction: column;
+    width: 90vmin;
+    height: 90vmin;
+  }
+}
+
+.Playground-score-text {
 }
 
 .Playground-board-row {

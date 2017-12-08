@@ -14,7 +14,8 @@
     "flow": "flow src"
   },
   "dependencies": {
-    "mobx": "3.4.0",
+    "lodash": "4.17.4",
+    "mobx": "^3.4.1",
     "mobx-react": "4.3.5",
     "react": "^16.0.0",
     "react-app-rewire-mobx": "1.0.7",
@@ -27,7 +28,7 @@
     "flow-bin": "0.60.1",
     "husky": "0.14.3",
     "lint-staged": "6.0.0",
-    "prettier": "1.8.2"
+    "prettier": "^1.9.1"
   },
   "prettier": {
     "printWidth": 100,
@@ -35,6 +36,9 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "src/**/*.js": ["prettier --write", "git add"]
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

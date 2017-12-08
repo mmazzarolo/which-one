@@ -4434,9 +4434,9 @@ mobx-react@4.3.5:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-mobx@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/mobx/-/mobx-3.4.0.tgz#b97f98d973d1be26d185d3cfc78053dd4829ec95"
+mobx@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.npmjs.org/mobx/-/mobx-3.4.1.tgz#37abe5ee882d401828d9f26c6c1a2f47614bbbef"
 
 ms@2.0.0:
   version "2.0.0"
@@ -5254,9 +5254,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@1.8.2:
-  version "1.8.2"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-1.8.2.tgz#bff83e7fd573933c607875e5ba3abbdffb96aeb8"
+prettier@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-1.9.1.tgz#41638a0d47c1efbd1b7d5a742aaa5548eab86d70"
 
 pretty-bytes@^4.0.2:
   version "4.0.2"

@@ -4,6 +4,7 @@ import { toJS } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import Tile from '../components/Tile';
 import TileModel from '../models/Tile';
+import utils from '../utils';
 import './Playground.css';
 
 import type { GameStatus, Stores } from '../types';
@@ -70,8 +71,14 @@ export default class Splash extends Component<Props> {
 
     return (
       <div className={'Playground'}>
-        <div className={'Playground-score'} style={{ color: primaryColor }}>
-          <p className={'Playground-score-text'}>{`Score: ${this.props.score}`}</p>
+        <div className={'Playground-score'}>
+          <p
+            className={'Playground-score-text'}
+            style={{
+              backgroundColor: utils.getDifferentLuminance(this.props.primaryColor, 0.2),
+              borderColor: utils.getDifferentLuminance(this.props.primaryColor, 0.1),
+            }}
+          >{`Score: ${this.props.score}`}</p>
         </div>
         <div className={'Playground-board'}>
           {boardCells.map((row, rowIndex) => {

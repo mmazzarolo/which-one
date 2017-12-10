@@ -53,6 +53,12 @@
 }
 
 .Playground-score-text {
+  color: white;
+  border-radius: 36px;
+  font-weight: bold;
+  padding: 2px 20px;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .Playground-board-row {

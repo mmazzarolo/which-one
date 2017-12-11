@@ -76,9 +76,9 @@ export default class GameStore {
         if (this.markedTilesLeft.length === 0) {
           this.disabled = true;
           this.status = 'GIVING_WIN_FEEDBACK';
-          await utils.delay(1000);
+          await utils.delay(500);
           this.status = 'HIDING_TILES';
-          await utils.delay(1000);
+          await utils.delay(500);
           this.startRound();
         }
       } else {

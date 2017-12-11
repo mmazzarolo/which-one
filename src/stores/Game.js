@@ -144,10 +144,16 @@ export default class GameStore {
   @computed
   get primaryColor(): string {
     return '#3498db';
+    // return '#5438DC';
+    // return '#44AF69';
+    // return '#0E7C7B';
   }
 
   @computed
   get accentColor(): string {
     return '#EA4258';
+    // return '#ADBDFF';
+    // return '#FCAB10';
+    // return '#FDE74C';
   }
 }

@@ -72,7 +72,7 @@ export default class GameStore {
     if (tile) {
       tile.touch();
       if (tile.marked) {
-        this.score += 10;
+        this.score += 1;
         if (this.markedTilesLeft.length === 0) {
           this.disabled = true;
           this.status = 'GIVING_WIN_FEEDBACK';

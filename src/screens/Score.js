@@ -54,6 +54,9 @@ export default class Splash extends Component<Props> {
         >
           Restart
         </div>
+        <div className={'Score-menu'} onClick={this._handleRetryClick}>
+          Menu
+        </div>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 {
-  "name": "memory",
+  "name": "memomemo",
   "version": "0.1.0",
   "license": "ISC",
   "private": true,
+  "homepage": "https://mmazzarolo.github.io/memomemo",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
@@ -37,9 +38,6 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.js": ["prettier --write", "git add"]
   }
 }

@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
-    "lottie-web": "5.0.5",
     "mobx": "3.4.1",
     "mobx-react": "4.3.5",
     "react": "^16.0.0",
@@ -38,6 +37,9 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "src/**/*.js": ["prettier --write", "git add"]
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

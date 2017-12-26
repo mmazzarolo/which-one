@@ -28,7 +28,7 @@
     "react-scripts": "1.0.17"
   },
   "devDependencies": {
-    "eslint": "4.13.1",
+    "eslint": "4.14.0",
     "flow-bin": "0.61.0",
     "husky": "0.14.3",
     "lint-staged": "6.0.0",
@@ -40,6 +40,9 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "src/**/*.js": ["prettier --write", "git add"]
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

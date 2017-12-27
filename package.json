@@ -1,9 +1,9 @@
 {
-  "name": "memomemo",
+  "name": "quickchose",
   "version": "0.1.0",
   "license": "ISC",
   "private": true,
-  "homepage": "https://mmazzarolo.github.io/memomemo",
+  "homepage": "https://mmazzarolo.github.io/quickchose",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
@@ -40,9 +40,6 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.js": ["prettier --write", "git add"]
   }
 }

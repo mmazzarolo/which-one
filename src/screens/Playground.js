@@ -1,11 +1,22 @@
 /* @flow */
+/* eslint-disable import/first */
 import React, { Component } from 'react';
-import { toJS } from 'mobx';
+import { observable, toJS } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import Tile from '../components/Tile';
 import TileModel from '../models/Tile';
 import utils from '../utils';
+import img1 from '../assets/images/1.png';
 import './Playground.css';
+
+const cards = [
+  { backgroundColor: '#3f51b5', image: require('../assets/images/1.png') },
+  { backgroundColor: '#5cc2f1', image: require('../assets/images/2.png') },
+  { backgroundColor: '#fff59d', image: require('../assets/images/3.png') },
+  { backgroundColor: '#9993c1', image: require('../assets/images/4.png') },
+  { backgroundColor: '#e88a63', image: require('../assets/images/5.png') },
+  { backgroundColor: '#91c794', image: require('../assets/images/6.png') },
+];
 
 import type { GameStatus, Stores } from '../types';
 
@@ -45,51 +56,46 @@ export default class Splash extends Component<Props> {
     handleTileClick: () => null,
   };
 
-  componentDidMount() {
-    this.props.startGame();
-  }
+  @observable currentCard: number = 0;
 
   render() {
-    const { board, handleTileClick, status, disabled, primaryColor, accentColor } = this.props;
-    const boardCells = board.map((row, rowIndex) => {
-      return row.map((col, colIndex) => {
-        const tile = col;
-        return (
-          <Tile
-            key={`Tile-${tile.id}`}
-            marked={tile.marked}
-            touched={tile.touched}
-            status={status}
-            disabled={disabled}
-            primaryColor={primaryColor}
-            accentColor={accentColor}
-            onClick={e => handleTileClick(tile.id)}
-          />
-        );
-      });
-    });
-
     return (
       <div className={'Playground'}>
-        <div className={'Playground-score'}>
-          <p
-            className={'Playground-score-text'}
-            style={{
-              backgroundColor: utils.getDifferentLuminance(this.props.primaryColor, 0.2),
-              borderColor: utils.getDifferentLuminance(this.props.primaryColor, 0.1),
-            }}
-          >{`Score: ${this.props.score}`}</p>
-        </div>
-        <div className={'Playground-board'}>
-          {boardCells.map((row, rowIndex) => {
+        <div className={'Playground-stack'}>
+          {cards.map((x, index) => {
+            const currentClassName = this.currentCard === index ? 'Playground-card-current' : '';
+            const hidingClassName = this.currentCard === index + 1 ? 'Playground-card-hiding' : '';
             return (
-              <div className={'Playground-board-row'} key={`Playground-board-row-${rowIndex}`}>
-                {row}
+              <div
+                key={x.backgroundColor}
+                className={`Playground-card ${currentClassName} ${hidingClassName}`}
+                style={{ backgroudColor: x.backgroundColor }}
+                onClick={() => (this.currentCard = index + 1)}
+              >
+                <img src={x.image} />
               </div>
             );
           })}
         </div>
       </div>
     );
+
+    // return (
+    //   <div className={'Playground'}>
+    //     <div className={'Playground-score'}>
+    //       <div className="card-stack">
+
+    //         <input id="card-8" name="card-set" type="radio" />
+    //         <div className="card">
+    //           <div className="content">
+    //             <h2>Step 8</h2>
+    //             <p>Write more CSS to cover up your already bad CSS.</p>
+    //             <label htmlFor="card-0">Start Over</label>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
 }

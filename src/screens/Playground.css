@@ -16,59 +16,32 @@
   height: 320px;
 }
 
-.Playground-card {
-  display: none;
+.Playground-left-image-container {
   position: absolute;
-  top: 0;
-  background-color: white;
-  box-shadow: 0 0.2rem 0 rgba(0, 0, 0, .2);
+  left: 20px;
+  bottom: 20px;
+  width: 100px;
+  height: 100px;
   border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  transform: translateY(0) scale(1);
-  transition: transform .5s, opacity .2s .3s, filter .1s;
   overflow: hidden;
 }
 
-.Playground-card-hiding {
-  display: flex;
-  animation: yudaAccept 0.5s forwards;
-  transform-origin: 50% 300%;
+.Playground-left-image-container > img {
+  width: 100px;
+  height: 100px;
 }
 
-@keyframes yudaAccept {
-  to {
-    opacity: 0;
-    transform: rotate3d(0, 0, 1, 20deg);
-  }
+.Playground-right-image-container {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.Playground-card-current {
-  display: flex;
-  z-index: 10;
-}
-
-.Playground-card-current ~ .Playground-card {
-  z-index: 9;
-  display: flex;
-  opacity: 1;
-  transform: translateY(1.2rem) scale(0.95);
-  transition: transform 0.5s;
-}
-
-.Playground-card-current ~ .Playground-card ~ .Playground-card {
-  z-index: 8;
-  display: flex;
-  opacity: 1;
-  transform: translateY(2.4rem) scale(0.9);
-  transition: transform 0.5s;
-}
-
-.Playground-card-current ~ .Playground-card ~ .Playground-card ~ .Playground-card {
-  z-index: 7;
-  display: flex;
-  opacity: 1;
-  transform: translateY(2.4rem) scale(0.9);
-  transition: transform 0.5s;
+.Playground-right-image-container > img {
+  width: 100px;
+  height: 100px;
 }

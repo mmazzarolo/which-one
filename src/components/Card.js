@@ -19,7 +19,7 @@ type Props = {
 export default class Card extends Component<Props> {
   render() {
     const { imageId, position, swipedDirection, onClick, ...otherProps } = this.props;
-    const imageSource = utils.getImageById(imageId);
+    const imageSource = utils.getImageSourceById(imageId);
     const classNames = [];
     if (position >= 0) {
       classNames.push(`Card-at-position-${position}`);

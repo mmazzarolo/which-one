@@ -22,7 +22,7 @@ const multiRandom = (lower: number = 0, upper: number = 1, count: number = 2): n
   return pickNumber();
 };
 
-const getImageById = (id: number) => {
+const getImageSourceById = (id: number) => {
   switch (id) {
     case 1:
       return image1;
@@ -48,5 +48,5 @@ const getImageById = (id: number) => {
 export default {
   delay,
   multiRandom,
-  getImageById,
+  getImageSourceById,
 };

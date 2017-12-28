@@ -42,8 +42,7 @@ body,
 }
 
 @keyframes wobble-hor-bottom {
-  0%,
-  100% {
+  0% {
     transform: translateX(0%);
     transform-origin: 50% 50%;
   }
@@ -66,6 +65,11 @@ body,
 
   75% {
     transform: translateX(-6px) rotate(-1.2deg);
+  }
+
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
   }
 }
 

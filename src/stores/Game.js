@@ -14,7 +14,6 @@ export default class GameStore {
 
   @observable cards: Card[] = [];
   @observable running: boolean = false;
-  @observable valid: boolean = false;
   @observable disabled: boolean = false;
   @observable level: number = 0;
   @observable score: number = 0;
@@ -31,12 +30,10 @@ export default class GameStore {
     this.level = 0;
     this.score = 0;
     this.running = true;
-    this.valid = true;
     this.disabled = false;
     const imageIds = utils.multiRandom(1, 8, 2);
     this.leftImageId = imageIds[0];
     this.rightImageId = imageIds[1];
-    console.log('imageIds', imageIds);
     const cards = [];
     times(99, index => {
       const imageId = sample(imageIds);
@@ -49,23 +46,20 @@ export default class GameStore {
   };
 
   @action
-  handleInput = (input: 'left' | 'right') => {
-    if (input === 'left') {
-      if (this.currentCard.imageId === this.leftImageId) {
-        console.log('OK');
-        this.score += 1;
-      } else {
-        console.warn('KO');
-      }
-      this.currentCard.swipeLeft();
-    } else if (input === 'right') {
-      if (this.currentCard.imageId === this.rightImageId) {
-        console.log('OK');
-        this.score += 1;
-      } else {
-        console.warn('KO');
-      }
-      this.currentCard.swipeRight();
+  handleInput = async (input: 'left' | 'right') => {
+    this.currentCard.swipedDirection = input;
+    const inputValid =
+      (input === 'left' && this.currentCard.imageId === this.leftImageId) ||
+      (input === 'right' && this.currentCard.imageId === this.rightImageId);
+    if (inputValid) {
+      this.score += 1;
+      this.currentCard.validate();
+    } else {
+      console.warn('KO');
+      this.currentCard.invalidate();
+      this.disabled = true;
+      await utils.delay(1000);
+      this.disabled = false;
     }
     this.currentCardIndex = this.currentCardIndex += 1;
   };

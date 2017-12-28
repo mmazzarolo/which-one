@@ -12,20 +12,23 @@ type Props = {
   imageId: number,
   position: number,
   swipedDirection?: 'left' | 'right',
+  valid: ?boolean,
   onClick: () => mixed,
 };
 
 @observer
 export default class Card extends Component<Props> {
   render() {
-    const { imageId, position, swipedDirection, onClick, ...otherProps } = this.props;
+    const { imageId, position, swipedDirection, valid, onClick, ...otherProps } = this.props;
     const imageSource = utils.getImageSourceById(imageId);
     const classNames = [];
-    if (position >= 0) {
-      classNames.push(`Card-at-position-${position}`);
+    classNames.push(`Card-at-position-${position}`);
+    if (swipedDirection && valid === false) {
+      classNames.push('Card-invalid');
+    } else {
+      if (swipedDirection === 'left') classNames.push('Card-swiped-left');
+      if (swipedDirection === 'right') classNames.push('Card-swiped-right');
     }
-    if (swipedDirection === 'left') classNames.push('Card-swiped-left');
-    if (swipedDirection === 'right') classNames.push('Card-swiped-right');
     return (
       <div className={`Card ${classNames.join(' ')}`} onClick={onClick}>
         <img src={imageSource} />

@@ -27,6 +27,12 @@
   overflow: hidden;
 }
 
+.Card-invalid {
+  display: flex;
+  z-index: 14;
+  animation: wobble-hor-bottom 0.8s both;
+}
+
 .Card-swiped-left {
   display: flex;
   z-index: 14;

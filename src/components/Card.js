@@ -8,8 +8,6 @@ import './Card.css';
 
 import type { GameStatus } from '../types';
 
-const AVAILABLE_IMAGE_SOURCES = [image1, image2];
-
 type Props = {
   imageId: number,
   position: number,
@@ -21,7 +19,7 @@ type Props = {
 export default class Card extends Component<Props> {
   render() {
     const { imageId, position, swipedDirection, onClick, ...otherProps } = this.props;
-    const imageSource = AVAILABLE_IMAGE_SOURCES[imageId];
+    const imageSource = utils.getImageById(imageId);
     const classNames = [];
     if (position >= 0) {
       classNames.push(`Card-at-position-${position}`);

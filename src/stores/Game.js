@@ -1,12 +1,9 @@
 /* @flow */
 import { action, autorun, computed, observable, toJS } from 'mobx';
 import { random, sample, times } from 'lodash';
-import image1 from '../assets/images/1.png';
-import image2 from '../assets/images/2.png';
 import Card from '../models/Card';
-import constants from '../config/constants';
-import utils from '../utils';
 import RouterStore from './Router';
+import utils from '../utils';
 
 import type { GameStatus } from '../types';
 
@@ -23,7 +20,7 @@ export default class GameStore {
   @observable score: number = 0;
   @observable currentCardIndex: number = 0;
   @observable leftImageId: number = 0;
-  @observable rightImageId: number = 1;
+  @observable rightImageId: number = 0;
 
   constructor(routerStore: RouterStore) {
     this.routerStore = routerStore;
@@ -31,15 +28,18 @@ export default class GameStore {
 
   @action
   startGame = async () => {
-    console.log('asdf');
     this.level = 0;
     this.score = 0;
     this.running = true;
     this.valid = true;
     this.disabled = false;
+    const imageIds = utils.multiRandom(1, 8, 2);
+    this.leftImageId = imageIds[0];
+    this.rightImageId = imageIds[1];
+    console.log('imageIds', imageIds);
     const cards = [];
     times(99, index => {
-      const imageId = random(0, 1);
+      const imageId = sample(imageIds);
       const card = new Card(index, imageId);
       cards.push(card);
     });

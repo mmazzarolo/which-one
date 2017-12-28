@@ -40,11 +40,12 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
-    this.timeLeft = 60;
+    this.timeLeft = 30;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {
         clearInterval(timerInterval);
+        this.routerStore.navigateToScore();
         return;
       }
     };

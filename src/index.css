@@ -7,6 +7,7 @@ body,
   height: 100%;
   width: 100%;
   overflow: hidden;
+  touch-action: none;
 }
 
 @keyframes scale-in-center {

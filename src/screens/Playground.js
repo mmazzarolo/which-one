@@ -68,7 +68,6 @@ export default class Playground extends Component<Props> {
   }
 
   handleKeyDown = (event: KeyboardEvent) => {
-    if (this.props.disabled) return;
     if (event.keyCode === 37) {
       this.props.handleInput('left');
     } else if (event.keyCode === 39) {

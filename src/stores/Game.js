@@ -53,6 +53,7 @@ export default class GameStore {
 
   @action
   handleInput = async (input: 'left' | 'right') => {
+    if (this.disabled) return;
     this.currentCard.swipedDirection = input;
     const inputValid =
       (input === 'left' && this.currentCard.imageId === this.leftImageId) ||

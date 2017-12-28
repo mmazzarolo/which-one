@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   let isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
   let isSafari = navigator.userAgent.indexOf('Safari') > -1;
   // let isOpera = navigator.userAgent.indexOf('Presto') > -1;
-  // $FlowFixMe
-  let isMac = navigator.userAgent.indexOf('Mac OS') != -1;
+  let isMac = navigator.userAgent.indexOf('Mac OS') != -1; // eslint-disable-line
   let isWindows = !isMac;
 
   if (isChrome && isSafari) {

@@ -86,7 +86,7 @@ export default class Playground extends Component<Props> {
       <div className={'Playground'}>
         <div className={'Playground-header'}>
           <p className={'Playground-score-text'}>{`Score: ${score}`}</p>
-          <p className={'Playground-timer-text'}>{`Time left: ${timeLeft}`}</p>
+          <p className={'Playground-timer-text'}>{`Time: ${timeLeft}`}</p>
         </div>
         <div className={'Playground-stack'}>
           {visibleSwipedCards.map(x => {

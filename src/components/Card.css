@@ -27,6 +27,11 @@
   overflow: hidden;
 }
 
+.Card > img {
+  width: 50vmin;
+  height: 50vmin;
+}
+
 .Card-invalid {
   display: flex;
   z-index: 14;

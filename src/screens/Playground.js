@@ -84,6 +84,14 @@ export default class Playground extends Component<Props> {
     const rightImageSource = utils.getImageSourceById(rightImageId);
     return (
       <div className={'Playground'}>
+        <div
+          className={'Playground-touch-overlay-left'}
+          onTouchStart={() => this.props.handleInput('left')}
+        />
+        <div
+          className={'Playground-touch-overlay-right'}
+          onTouchStart={() => this.props.handleInput('right')}
+        />
         <div className={'Playground-header'}>
           <p className={'Playground-score-text'}>{`Score: ${score}`}</p>
           <p className={'Playground-timer-text'}>{`Time: ${timeLeft}`}</p>

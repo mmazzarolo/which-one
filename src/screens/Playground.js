@@ -1,101 +1,111 @@
 /* @flow */
-/* eslint-disable import/first */
 import React, { Component } from 'react';
 import { observable, toJS } from 'mobx';
 import { inject, observer } from 'mobx-react';
-import Tile from '../components/Tile';
-import TileModel from '../models/Tile';
+import { take, takeRight } from 'lodash';
+import Card from '../components/Card';
+import CardModel from '../models/Card';
 import utils from '../utils';
 import img1 from '../assets/images/1.png';
 import './Playground.css';
 
-const cards = [
-  { backgroundColor: '#3f51b5', image: require('../assets/images/1.png') },
-  { backgroundColor: '#5cc2f1', image: require('../assets/images/2.png') },
-  { backgroundColor: '#fff59d', image: require('../assets/images/3.png') },
-  { backgroundColor: '#9993c1', image: require('../assets/images/4.png') },
-  { backgroundColor: '#e88a63', image: require('../assets/images/5.png') },
-  { backgroundColor: '#91c794', image: require('../assets/images/6.png') },
-];
+// const cards = [
+//   { backgroundColor: '#3f51b5', image: require('../assets/images/1.png') },
+//   { backgroundColor: '#5cc2f1', image: require('../assets/images/2.png') },
+//   { backgroundColor: '#fff59d', image: require('../assets/images/3.png') },
+//   { backgroundColor: '#9993c1', image: require('../assets/images/4.png') },
+//   { backgroundColor: '#e88a63', image: require('../assets/images/5.png') },
+//   { backgroundColor: '#91c794', image: require('../assets/images/6.png') },
+// ];
 
 import type { GameStatus, Stores } from '../types';
 
 type Props = {
-  board: TileModel[][],
-  status: GameStatus,
+  remainingCards: CardModel[],
+  swipedCards: CardModel[],
   score: number,
   disabled: boolean,
-  primaryColor: string,
-  accentColor: string,
   startGame: () => mixed,
-  handleTileClick: number => mixed,
+  handleInput: ('left' | 'right') => mixed,
 };
 
 const mapStoresToProps = (stores: Stores) => ({
-  board: toJS(stores.game.board),
-  status: stores.game.status,
+  remainingCards: toJS(stores.game.remainingCards),
+  swipedCards: toJS(stores.game.swipedCards),
   score: stores.game.score,
   disabled: stores.game.disabled,
   startGame: stores.game.startGame,
-  primaryColor: stores.game.primaryColor,
-  accentColor: stores.game.accentColor,
-  handleTileClick: stores.game.handleTileClick,
+  handleInput: stores.game.handleInput,
 });
 
 @inject(mapStoresToProps)
 @observer
-export default class Splash extends Component<Props> {
+export default class Playground extends Component<Props> {
   static defaultProps = {
-    board: [],
-    status: 'SHOWING_INITIAL_TILES',
+    remainingCards: [],
+    swipedCards: [],
     score: 0,
     disabled: false,
-    primaryColor: 'blue',
-    accentColor: 'red',
     startGame: () => null,
-    handleTileClick: () => null,
+    handleInput: () => null,
   };
 
-  @observable currentCard: number = 0;
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown, false);
+    this.props.startGame();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown, false);
+  }
+
+  handleKeyDown = (event: KeyboardEvent) => {
+    switch (event.keyCode) {
+      case 37: {
+        this.props.handleInput('left');
+        break;
+      }
+      case 39: {
+        this.props.handleInput('right');
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  };
 
   render() {
+    const { remainingCards, swipedCards } = this.props;
+    const visibleRemainingCards = take(remainingCards, 5);
+    const visibleSwipedCards = takeRight(swipedCards, 5);
     return (
       <div className={'Playground'}>
         <div className={'Playground-stack'}>
-          {cards.map((x, index) => {
-            const currentClassName = this.currentCard === index ? 'Playground-card-current' : '';
-            const hidingClassName = this.currentCard === index + 1 ? 'Playground-card-hiding' : '';
+          {visibleSwipedCards.map(x => {
             return (
-              <div
-                key={x.backgroundColor}
-                className={`Playground-card ${currentClassName} ${hidingClassName}`}
-                style={{ backgroudColor: x.backgroundColor }}
-                onClick={() => (this.currentCard = index + 1)}
-              >
-                <img src={x.image} />
-              </div>
+              <Card
+                key={x.index}
+                position={0}
+                imageId={x.imageId}
+                swipedDirection={x.swipedDirection}
+                onClick={() => null}
+              />
+            );
+          })}
+          {visibleRemainingCards.map((x, index) => {
+            return (
+              <Card
+                key={x.index}
+                position={index}
+                imageId={x.imageId}
+                swipedDirection={x.swipedDirection}
+                onClick={() => null}
+              />
             );
           })}
         </div>
       </div>
     );
-
-    // return (
-    //   <div className={'Playground'}>
-    //     <div className={'Playground-score'}>
-    //       <div className="card-stack">
-
-    //         <input id="card-8" name="card-set" type="radio" />
-    //         <div className="card">
-    //           <div className="content">
-    //             <h2>Step 8</h2>
-    //             <p>Write more CSS to cover up your already bad CSS.</p>
-    //             <label htmlFor="card-0">Start Over</label>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
   }
 }

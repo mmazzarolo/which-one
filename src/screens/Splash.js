@@ -14,7 +14,7 @@ type Props = {
 };
 
 const mapStoresToProps = (stores: Stores) => ({
-  primaryColor: stores.game.primaryColor,
+  // primaryColor: stores.game.primaryColor,
   navigateToPlayground: stores.router.navigateToPlayground,
 });
 

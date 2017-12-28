@@ -1,13 +1,9 @@
 /* @flow */
-import { action, autorun, computed, observable, toJS } from 'mobx';
-import { random, sample, times } from 'lodash';
+import { action, computed, observable } from 'mobx';
+import { sample, times } from 'lodash';
 import Card from '../models/Card';
 import RouterStore from './Router';
 import utils from '../utils';
-
-import type { GameStatus } from '../types';
-
-const NUMBER_OF_VISIBLE_CARDS = 3;
 
 export default class GameStore {
   routerStore: RouterStore;
@@ -20,6 +16,7 @@ export default class GameStore {
   @observable currentCardIndex: number = 0;
   @observable leftImageId: number = 0;
   @observable rightImageId: number = 0;
+  @observable timeLeft: number = 0;
 
   constructor(routerStore: RouterStore) {
     this.routerStore = routerStore;
@@ -43,6 +40,15 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
+    this.timeLeft = 60;
+    const timer = () => {
+      this.timeLeft = this.timeLeft - 1;
+      if (this.timeLeft <= 0) {
+        clearInterval(timerInterval);
+        return;
+      }
+    };
+    const timerInterval = setInterval(timer, 1000);
   };
 
   @action

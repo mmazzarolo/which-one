@@ -1,10 +1,7 @@
 /* @flow */
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import utils from '../utils';
 import './Logo.css';
-
-import type { GameStatus } from '../types';
 
 type Props = {};
 

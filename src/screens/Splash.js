@@ -35,7 +35,7 @@ export default class Splash extends Component<Props> {
   };
 
   render() {
-    const { primaryColor, navigateToPlayground } = this.props;
+    const { primaryColor } = this.props;
     return (
       <div className={'Splash'} style={{ backgroundColor: primaryColor }}>
         <Logo />

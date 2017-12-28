@@ -1,12 +1,8 @@
 /* @flow */
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import image1 from '../assets/images/1.png';
-import image2 from '../assets/images/2.png';
 import utils from '../utils';
 import './Card.css';
-
-import type { GameStatus } from '../types';
 
 type Props = {
   imageId: number,
@@ -30,8 +26,8 @@ export default class Card extends Component<Props> {
       if (swipedDirection === 'right') classNames.push('Card-swiped-right');
     }
     return (
-      <div className={`Card ${classNames.join(' ')}`} onClick={onClick}>
-        <img src={imageSource} />
+      <div className={`Card ${classNames.join(' ')}`} onClick={onClick} {...otherProps}>
+        <img src={imageSource} alt={''} />
       </div>
     );
   }

@@ -22,10 +22,11 @@ ReactDOM.render(
 // registerServiceWorker();
 document.addEventListener('DOMContentLoaded', function(event) {
   let isChrome = navigator.userAgent.indexOf('Chrome') > -1;
-  let isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
+  // let isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
   let isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
   let isSafari = navigator.userAgent.indexOf('Safari') > -1;
-  let isOpera = navigator.userAgent.indexOf('Presto') > -1;
+  // let isOpera = navigator.userAgent.indexOf('Presto') > -1;
+  // $FlowFixMe
   let isMac = navigator.userAgent.indexOf('Mac OS') != -1;
   let isWindows = !isMac;
 
@@ -35,13 +36,17 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   if (isSafari || isWindows) {
     const body = document.getElementsByTagName('body')[0];
+    // $FlowFixMe
     body.style['-webkit-text-stroke'] = '1.6px';
+    // $FlowFixMe
     body.style['font-weight'] = '400';
   }
 
   if (isFirefox) {
     const body = document.getElementsByTagName('body')[0];
+    // $FlowFixMe
     body.style['-webkit-text-stroke'] = '1px';
+    // $FlowFixMe
     body.style['font-weight'] = 'bold';
   }
 });

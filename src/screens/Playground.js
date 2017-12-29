@@ -8,15 +8,6 @@ import CardModel from '../models/Card';
 import utils from '../utils';
 import './Playground.css';
 
-// const cards = [
-//   { backgroundColor: '#3f51b5', image: require('../assets/images/1.png') },
-//   { backgroundColor: '#5cc2f1', image: require('../assets/images/2.png') },
-//   { backgroundColor: '#fff59d', image: require('../assets/images/3.png') },
-//   { backgroundColor: '#9993c1', image: require('../assets/images/4.png') },
-//   { backgroundColor: '#e88a63', image: require('../assets/images/5.png') },
-//   { backgroundColor: '#91c794', image: require('../assets/images/6.png') },
-// ];
-
 import type { Stores } from '../types';
 
 type Props = {

@@ -17,8 +17,8 @@
   position: absolute;
   top: 0;
   background-color: white;
-  box-shadow: 0 0.2rem 0 rgba(0, 0, 0, .2);
-  border-radius: 4px;
+  box-shadow: 0 0.6vmin 0 rgba(0, 0, 0, .2);
+  border-radius: 1vmin;
   justify-content: center;
   align-items: center;
   z-index: 1;
@@ -61,7 +61,7 @@
   z-index: 9;
   display: flex;
   opacity: 1;
-  transform: translateY(1.2rem) scale(0.95);
+  transform: translateY(3vmin) scale(0.95);
   transition: transform 0.5s;
 }
 
@@ -69,7 +69,7 @@
   z-index: 8;
   display: flex;
   opacity: 1;
-  transform: translateY(2.4rem) scale(0.9);
+  transform: translateY(6vmin) scale(0.9);
   transition: transform 0.5s;
 }
 
@@ -77,6 +77,6 @@
   z-index: 7;
   display: flex;
   opacity: 1;
-  transform: translateY(2.4rem) scale(0.9);
+  transform: translateY(9vmin) scale(0.85);
   transition: transform 0.5s;
 }

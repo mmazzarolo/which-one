@@ -112,11 +112,13 @@ export default class Playground extends Component<Props> {
             );
           })}
         </div>
-        <div className={'Playground-left-image-container'}>
-          <img src={leftImageSource} alt={''} />
-        </div>
-        <div className={'Playground-right-image-container'}>
-          <img src={rightImageSource} alt={''} />
+        <div className={'Playground-footer'}>
+          <div className={'Playground-left-image-container'}>
+            <img src={leftImageSource} alt={''} />
+          </div>
+          <div className={'Playground-right-image-container'}>
+            <img src={rightImageSource} alt={''} />
+          </div>
         </div>
       </div>
     );

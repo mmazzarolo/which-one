@@ -18,6 +18,7 @@ type Props = {
   score: number,
   timeLeft: number,
   disabled: boolean,
+  primaryColor: string,
   startGame: () => mixed,
   handleInput: ('left' | 'right') => mixed,
 };
@@ -30,6 +31,7 @@ const mapStoresToProps = (stores: Stores) => ({
   score: stores.game.score,
   timeLeft: stores.game.timeLeft,
   disabled: stores.game.disabled,
+  primaryColor: stores.game.primaryColor,
   startGame: stores.game.startGame,
   handleInput: stores.game.handleInput,
 });
@@ -45,6 +47,7 @@ export default class Playground extends Component<Props> {
     score: 0,
     timeLeft: 0,
     disabled: false,
+    primaryColor: '#3f51b5',
     startGame: () => null,
     handleInput: () => null,
   };
@@ -67,7 +70,15 @@ export default class Playground extends Component<Props> {
   };
 
   render() {
-    const { remainingCards, swipedCards, leftImageId, rightImageId, score, timeLeft } = this.props;
+    const {
+      remainingCards,
+      swipedCards,
+      leftImageId,
+      rightImageId,
+      score,
+      timeLeft,
+      primaryColor,
+    } = this.props;
     const visibleRemainingCards = take(remainingCards, 5);
     const visibleSwipedCards = takeRight(swipedCards, 5);
     const leftImageSource = utils.getImageSourceById(leftImageId);
@@ -83,8 +94,14 @@ export default class Playground extends Component<Props> {
           onTouchStart={() => this.props.handleInput('right')}
         />
         <div className={'Playground-header'}>
-          <p className={'Playground-score-text'}>{`Score: ${score}`}</p>
-          <p className={'Playground-timer-text'}>{`Time: ${timeLeft}`}</p>
+          <p
+            className={'Playground-score-text'}
+            style={{ color: primaryColor, borderColor: primaryColor }}
+          >{`Score: ${score}`}</p>
+          <p
+            className={'Playground-timer-text'}
+            style={{ color: primaryColor, borderColor: primaryColor }}
+          >{`Time: ${timeLeft}`}</p>
         </div>
         <div className={'Playground-stack'}>
           {visibleSwipedCards.map(x => {

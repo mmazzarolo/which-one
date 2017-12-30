@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #3f51b5;
   background-color: #fafafa;
 }
 
@@ -38,11 +37,10 @@
 
 .Playground-score-text {
   font-size: 5vh;
-  color: #3f51b5;
   border-radius: 36px;
   font-weight: bold;
   padding: 2px 20px;
-  border-width: 1px;
+  border-width: 0.5vmin;
   border-style: solid;
   background-color: white;
   border-color: white;
@@ -51,11 +49,10 @@
 
 .Playground-timer-text {
   font-size: 5vh;
-  color: #3f51b5;
   border-radius: 36px;
   font-weight: bold;
   padding: 2px 20px;
-  border-width: 1px;
+  border-width: 0.5vmin;
   border-style: solid;
   background-color: white;
   border-color: white;

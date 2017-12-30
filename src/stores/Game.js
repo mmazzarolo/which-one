@@ -17,6 +17,7 @@ export default class GameStore {
   @observable leftImageId: number = 0;
   @observable rightImageId: number = 0;
   @observable timeLeft: number = 0;
+  @observable primaryColor: string = '#3f51b5';
 
   constructor(routerStore: RouterStore) {
     this.routerStore = routerStore;
@@ -40,7 +41,7 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
-    this.timeLeft = 999;
+    this.timeLeft = 5;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {

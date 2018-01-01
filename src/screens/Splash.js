@@ -14,7 +14,7 @@ type Props = {
 };
 
 const mapStoresToProps = (stores: Stores) => ({
-  // primaryColor: stores.game.primaryColor,
+  primaryColor: stores.game.primaryColor,
   navigateToPlayground: stores.router.navigateToPlayground,
 });
 
@@ -37,14 +37,8 @@ export default class Splash extends Component<Props> {
   render() {
     const { primaryColor } = this.props;
     return (
-      <div className={'Splash'} style={{ backgroundColor: primaryColor }}>
+      <div className={'Splash'}>
         <Logo />
-        <div className={'Splash-score'}>
-          <p className={'Splash-label'}>Your high score: </p>
-          <p className={'Splash-points'} style={{ color: primaryColor }}>
-            {20}
-          </p>
-        </div>
         <div
           className={'Splash-start'}
           style={{ color: primaryColor, borderColor: primaryColor }}

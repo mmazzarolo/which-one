@@ -17,6 +17,7 @@
   user-select: none;
   animation-name: reveal-text;
   color: #fff;
+  color: #3f51b5;
   white-space: nowrap;
   cursor: default;
 }
@@ -31,6 +32,7 @@
   bottom: 0;
   background-color: #f2f98b;
   background-color: white;
+  background-color: #3f51b5;
   transform: scaleX(0);
   transform-origin: 0 50%;
   pointer-events: none;

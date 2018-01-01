@@ -10,7 +10,7 @@ export default class Logo extends Component<Props> {
   render() {
     return (
       <div className={'Logo-container'}>
-        <h1 className={'Logo-text'}>{'memomemo'}</h1>
+        <h1 className={'Logo-text'}>{'CHOW'}</h1>
       </div>
     );
   }

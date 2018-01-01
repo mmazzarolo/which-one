@@ -5,6 +5,8 @@ import Card from '../models/Card';
 import RouterStore from './Router';
 import utils from '../utils';
 
+const TIME_LIMIT = 30;
+
 export default class GameStore {
   routerStore: RouterStore;
 
@@ -41,7 +43,7 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
-    this.timeLeft = 999;
+    this.timeLeft = TIME_LIMIT;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {

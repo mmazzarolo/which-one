@@ -4,7 +4,7 @@ import { action, observable } from 'mobx';
 export type Screen = 'SPLASH' | 'PLAYGROUND' | 'SCORE';
 
 export default class RouterStore {
-  @observable currentScreen: Screen = 'PLAYGROUND';
+  @observable currentScreen: Screen = 'SPLASH';
 
   @action navigateToSplash = () => (this.currentScreen = 'SPLASH');
   @action navigateToPlayground = () => (this.currentScreen = 'PLAYGROUND');

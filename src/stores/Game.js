@@ -5,7 +5,7 @@ import Card from '../models/Card';
 import RouterStore from './Router';
 import utils from '../utils';
 
-const TIME_LIMIT = 30;
+const TIME_LIMIT = 3000;
 
 export default class GameStore {
   routerStore: RouterStore;

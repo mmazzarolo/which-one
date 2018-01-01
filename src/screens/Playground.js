@@ -1,6 +1,6 @@
 /* @flow */
 import React, { Component } from 'react';
-import { toJS } from 'mobx';
+import { observable, toJS } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import { take, takeRight } from 'lodash';
 import Card from '../components/Card';
@@ -9,6 +9,8 @@ import utils from '../utils';
 import './Playground.css';
 
 import type { Stores } from '../types';
+
+const INITIAL_ANIMATION_TIME = 1200;
 
 type Props = {
   remainingCards: CardModel[],
@@ -52,14 +54,21 @@ export default class Playground extends Component<Props> {
     handleInput: () => null,
   };
 
+  @observable isAnimating = true;
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown, false);
     this.props.startGame();
+    setTimeout(this.stopAnimating, INITIAL_ANIMATION_TIME);
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown, false);
   }
+
+  stopAnimating = () => {
+    this.isAnimating = false;
+  };
 
   handleKeyDown = (event: KeyboardEvent) => {
     if (event.keyCode === 37) {
@@ -124,6 +133,7 @@ export default class Playground extends Component<Props> {
                 imageId={x.imageId}
                 swipedDirection={x.swipedDirection}
                 valid={x.valid}
+                animateEnter={this.isAnimating}
                 onClick={() => null}
               />
             );

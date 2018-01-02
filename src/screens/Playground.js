@@ -102,7 +102,7 @@ export default class Playground extends Component<Props> {
           className={'Playground-touch-overlay-right'}
           onTouchStart={() => this.props.handleInput('right')}
         />
-        <div className={'Playground-header'}>
+        {/* <div className={'Playground-header'}>
           <p
             className={'Playground-score-text'}
             style={{ color: primaryColor, borderColor: primaryColor }}
@@ -111,7 +111,7 @@ export default class Playground extends Component<Props> {
             className={'Playground-timer-text'}
             style={{ color: primaryColor, borderColor: primaryColor }}
           >{`Time: ${timeLeft}`}</p>
-        </div>
+        </div> */}
         <div className={'Playground-stack'}>
           {visibleSwipedCards.map(x => {
             return (

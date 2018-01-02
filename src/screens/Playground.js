@@ -6,6 +6,7 @@ import { take, takeRight } from 'lodash';
 import Card from '../components/Card';
 import CardModel from '../models/Card';
 import utils from '../utils';
+import Timer from '../components/Timer';
 import './Playground.css';
 
 import type { Stores } from '../types';
@@ -102,8 +103,11 @@ export default class Playground extends Component<Props> {
           className={'Playground-touch-overlay-right'}
           onTouchStart={() => this.props.handleInput('right')}
         />
-        {/* <div className={'Playground-header'}>
-          <p
+
+        <div className={'Playground-header'}>
+          <Timer time={timeLeft} />
+        </div>
+        {/*<p
             className={'Playground-score-text'}
             style={{ color: primaryColor, borderColor: primaryColor }}
           >{`Score: ${score}`}</p>

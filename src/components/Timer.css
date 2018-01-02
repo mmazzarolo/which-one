@@ -1,0 +1,23 @@
+.Timer-svg {
+  display: block;
+  margin: 50px auto;
+  width: 250px;
+  height: 250px;
+
+  /* To reverse the animation, flip the object using CSS by uncommenting the below */
+
+  /*-webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";*/
+}
+
+.Timer-path-loader {
+  fill: #bd4;
+}
+
+.Timer-path-border {
+  fill: #9b2;
+}

@@ -39,7 +39,6 @@ const svgPieTimer = (elements: HTMLElement[], duration: number = 1000, loops: nu
 
     if (remaining < 60) {
       draw(elements, n - 0.0001);
-
       if (remaining < totaldur && n) return;
     }
     draw(elements, rate);

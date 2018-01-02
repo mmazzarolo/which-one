@@ -49,8 +49,8 @@ const svgPieTimer = (elements: HTMLElement[], duration: number = 1000, loops: nu
 
 @observer
 export default class Timer extends Component<Props> {
-  pathBorderRef: any = null;
-  pathLoaderRef: any = null;
+  pathBorderRef: ?any = null;
+  pathLoaderRef: ?any = null;
 
   componentDidMount() {
     if (this.pathBorderRef && this.pathLoaderRef) {

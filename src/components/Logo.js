@@ -1,7 +1,7 @@
 /* @flow */
-import React, { Component } from 'react';
-import { observer } from 'mobx-react';
-import './Logo.css';
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import "./Logo.css";
 
 type Props = {};
 
@@ -9,8 +9,8 @@ type Props = {};
 export default class Logo extends Component<Props> {
   render() {
     return (
-      <div className={'Logo-container'}>
-        <h1 className={'Logo-text'}>{'CHOW'}</h1>
+      <div className="Logo-container">
+        <h1 className="Logo-text">CHOW</h1>
       </div>
     );
   }

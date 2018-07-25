@@ -1,0 +1,12 @@
+/* @flow */
+
+export type GameStatus =
+  | "SHOWING_INITIAL_TILES"
+  | "HIDING_INITIAL_TILES"
+  | "SHOWING_HINTS"
+  | "HIDING_HINTS"
+  | "SHOWING_TILES"
+  | "RUNNING"
+  | "HIDING_TILES"
+  | "GIVING_WIN_FEEDBACK"
+  | "GIVING_LOST_FEEDBACK";

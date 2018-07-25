@@ -1,12 +1,11 @@
 /* @flow */
-import { action, observable } from 'mobx';
-
-export type Screen = 'SPLASH' | 'PLAYGROUND' | 'SCORE';
+import { action, observable } from "mobx";
+import type { Screen } from "../types/Screen";
 
 export default class RouterStore {
-  @observable currentScreen: Screen = 'PLAYGROUND';
+  @observable currentScreen: Screen = "PLAYGROUND";
 
-  @action navigateToSplash = () => (this.currentScreen = 'SPLASH');
-  @action navigateToPlayground = () => (this.currentScreen = 'PLAYGROUND');
-  @action navigateToScore = () => (this.currentScreen = 'SCORE');
+  @action navigateToSplash = () => (this.currentScreen = "SPLASH");
+  @action navigateToPlayground = () => (this.currentScreen = "PLAYGROUND");
+  @action navigateToScore = () => (this.currentScreen = "SCORE");
 }

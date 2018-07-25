@@ -1,11 +1,11 @@
 /* @flow */
-import { action, computed, observable } from 'mobx';
-import { sample, times } from 'lodash';
-import Card from '../models/Card';
-import RouterStore from './Router';
-import utils from '../utils';
-
-const TIME_LIMIT = 3000;
+import { action, computed, observable } from "mobx";
+import { sample, times } from "lodash";
+import Card from "../models/Card";
+import RouterStore from "./Router";
+import constants from "../config/constants";
+import delay from "../utils/delay";
+import multiRandom from "../utils/multiRandom";
 
 export default class GameStore {
   routerStore: RouterStore;
@@ -19,7 +19,7 @@ export default class GameStore {
   @observable leftImageId: number = 0;
   @observable rightImageId: number = 0;
   @observable timeLeft: number = 0;
-  @observable primaryColor: string = '#3f51b5';
+  @observable primaryColor: string = "#3f51b5";
 
   constructor(routerStore: RouterStore) {
     this.routerStore = routerStore;
@@ -31,11 +31,14 @@ export default class GameStore {
     this.score = 0;
     this.running = true;
     this.disabled = false;
-    const imageIds = utils.multiRandom(1, 8, 2);
-    this.leftImageId = imageIds[0];
-    this.rightImageId = imageIds[1];
+    // const imageIds = multiRandom(1, 8, 2);
+    // this.leftImageId = imageIds[0];
+    // this.rightImageId = imageIds[1];
+    const imageIds = [1, 2];
+    this.leftImageId = 1;
+    this.rightImageId = 2;
     const cards = [];
-    times(99, index => {
+    times(999, index => {
       const imageId = sample(imageIds);
       const card = new Card(index, imageId);
       cards.push(card);
@@ -43,7 +46,7 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
-    this.timeLeft = TIME_LIMIT;
+    this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {
@@ -56,20 +59,19 @@ export default class GameStore {
   };
 
   @action
-  handleInput = async (input: 'left' | 'right') => {
+  handleInput = async (input: "left" | "right") => {
     if (this.disabled) return;
     this.currentCard.swipedDirection = input;
     const inputValid =
-      (input === 'left' && this.currentCard.imageId === this.leftImageId) ||
-      (input === 'right' && this.currentCard.imageId === this.rightImageId);
+      (input === "left" && this.currentCard.imageId === this.leftImageId) ||
+      (input === "right" && this.currentCard.imageId === this.rightImageId);
     if (inputValid) {
       this.score += 1;
       this.currentCard.validate();
     } else {
-      console.warn('KO');
       this.currentCard.invalidate();
       this.disabled = true;
-      await utils.delay(1000);
+      await delay(1000);
       this.disabled = false;
     }
     this.currentCardIndex = this.currentCardIndex += 1;

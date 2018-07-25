@@ -1,22 +1,22 @@
 /* @flow */
-import React, { Component } from 'react';
-import { observable } from 'mobx';
-import { inject, observer } from 'mobx-react';
-import utils from '../utils';
-import './Score.css';
+import React, { Component } from "react";
+import { observable } from "mobx";
+import { inject, observer } from "mobx-react";
+import delay from "../utils/delay";
+import "./Score.css";
 
-import type { Stores } from '../types';
+import type { Stores } from "../types/Stores";
 
 type Props = {
   score: number,
   primaryColor: string,
-  navigateToPlayground: () => mixed,
+  navigateToPlayground: () => mixed
 };
 
 const mapStoresToProps = (stores: Stores) => ({
   score: stores.game.score,
   primaryColor: stores.game.primaryColor,
-  navigateToPlayground: stores.router.navigateToPlayground,
+  navigateToPlayground: stores.router.navigateToPlayground
 });
 
 @inject(mapStoresToProps)
@@ -24,15 +24,15 @@ const mapStoresToProps = (stores: Stores) => ({
 export default class Splash extends Component<Props> {
   static defaultProps = {
     score: 0,
-    primaryColor: 'blue',
-    navigateToPlayground: () => null,
+    primaryColor: "blue",
+    navigateToPlayground: () => null
   };
 
   @observable exiting: boolean = false;
 
-  _handleRetryClick = async () => {
+  handleRetryClick = async () => {
     this.exiting = true;
-    await utils.delay(500);
+    await delay(500);
     this.props.navigateToPlayground();
   };
 
@@ -40,21 +40,21 @@ export default class Splash extends Component<Props> {
     const { primaryColor } = this.props;
     return (
       <div
-        className={`Score ${this.exiting ? 'Score-exiting' : ''}`}
+        className={`Score ${this.exiting ? "Score-exiting" : ""}`}
         style={{ backgroundColor: primaryColor }}
       >
-        <p className={'Score-label'}>Score: </p>
-        <p className={'Score-points'} style={{ color: primaryColor }}>
+        <p className="Score-label">Score: </p>
+        <p className="Score-points" style={{ color: primaryColor }}>
           {this.props.score}
         </p>
         <div
-          className={'Score-retry'}
+          className="Score-retry"
           style={{ color: primaryColor, borderColor: primaryColor }}
-          onClick={this._handleRetryClick}
+          onClick={this.handleRetryClick}
         >
           Restart
         </div>
-        <div className={'Score-menu'} onClick={this._handleRetryClick}>
+        <div className="Score-menu" onClick={this.handleRetryClick}>
           Menu
         </div>
       </div>

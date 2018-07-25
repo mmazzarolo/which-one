@@ -1,10 +1,10 @@
 /* @flow */
-import { action, observable } from 'mobx';
+import { action, observable } from "mobx";
 
 export default class Card {
   @observable index: number;
   @observable imageId: number;
-  @observable swipedDirection: 'left' | 'right';
+  @observable swipedDirection: "left" | "right";
   @observable valid: ?boolean = null;
 
   constructor(index: number, imageId: number) {
@@ -13,18 +13,18 @@ export default class Card {
   }
 
   @action
-  swipe = (swipedDirection: 'left' | 'right') => {
+  swipe = (swipedDirection: "left" | "right") => {
     this.swipedDirection = swipedDirection;
   };
 
   @action
   swipeLeft = () => {
-    this.swipedDirection = 'left';
+    this.swipedDirection = "left";
   };
 
   @action
   swipeRight = () => {
-    this.swipedDirection = 'right';
+    this.swipedDirection = "right";
   };
 
   @action

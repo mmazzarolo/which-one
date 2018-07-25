@@ -72,7 +72,6 @@
 
 .Playground-footer {
   position: absolute;
-  height: 15vmin;
   bottom: 20px;
   width: 100%;
   max-width: 100vmin;
@@ -81,30 +80,12 @@
   align-items: center;
 }
 
-.Playground-left-image-container {
+.Playground-footer-left-mini-card {
   margin-left: 20px;
-  border-radius: 0.5vmin;
-  width: 15vmin;
-  height: 15vmin;
-  overflow: hidden;
-  box-shadow: 0 0.3vmin 0 rgba(0, 0, 0, .2);
+  display: flex;
 }
 
-.Playground-left-image-container > img {
-  width: 100%;
-  height: 100%;
-}
-
-.Playground-right-image-container {
+.Playground-footer-right-mini-card {
   margin-right: 20px;
-  border-radius: 0.5vmin;
-  width: 15vmin;
-  height: 15vmin;
-  overflow: hidden;
-  box-shadow: 0 0.3vmin 0 rgba(0, 0, 0, .2);
-}
-
-.Playground-right-image-container > img {
-  width: 100%;
-  height: 100%;
+  display: flex;
 }

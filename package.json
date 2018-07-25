@@ -17,27 +17,26 @@
     "flow": "flow src"
   },
   "dependencies": {
-    "gh-pages": "1.1.0",
-    "lodash": "4.17.4",
-    "mobx": "3.4.1",
-    "mobx-react": "4.3.5",
-    "react": "^16.0.0",
-    "react-app-rewire-mobx": "1.0.7",
-    "react-app-rewired": "1.4.0",
-    "react-dom": "^16.0.0",
-    "react-scripts": "1.0.17"
+    "@fortawesome/fontawesome-svg-core": "^1.2.1",
+    "@fortawesome/free-regular-svg-icons": "^5.1.1",
+    "@fortawesome/free-solid-svg-icons": "^5.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.0",
+    "gh-pages": "^1.2.0",
+    "lodash": "^4.17.10",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.3",
+    "react": "^16.4.1",
+    "react-app-rewire-mobx": "^1.0.8",
+    "react-app-rewired": "^1.5.2",
+    "react-dom": "^16.4.1",
+    "react-scripts": "^1.1.4"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
-    "flow-bin": "^0.59.0",
+    "eslint": "^5.2.0",
+    "flow-bin": "^0.77.0",
     "husky": "0.14.3",
-    "lint-staged": "6.0.0",
-    "prettier": "1.9.2"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7"
   },
   "lint-staged": {
     "src/**/*.js": [

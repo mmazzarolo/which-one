@@ -17,19 +17,31 @@
   position: absolute;
   top: 0;
   background-color: white;
-  box-shadow: 0 0.6vmin 0 rgba(0, 0, 0, .2);
   border-radius: 1vmin;
   justify-content: center;
   align-items: center;
   z-index: 1;
   transform: translateY(0) scale(1);
-  transition: transform .5s, opacity .2s .3s, filter .1s;
+  transition: transform 0.5s, opacity 0.2s 0.3s, filter 0.1s;
   overflow: hidden;
 }
 
 .Card > img {
-  width: 50vmin;
-  height: 50vmin;
+  width: 48vmin;
+  height: 48vmin;
+  padding: 2vmin;
+}
+
+.Card-mini {
+  border-radius: 0.5vmin;
+  box-shadow: 0 0.3vmin 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: visible;
+}
+
+.Card-mini > img {
+  width: 15vmin;
+  height: 15vmin;
 }
 
 .Card-invalid {
@@ -82,22 +94,26 @@
 }
 
 .Card-at-position-0.Card-entering {
-  animation: slide-in-blurred-top-position-0 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-top-position-0 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
   animation-delay: 0.9s;
 }
 
 .Card-at-position-1.Card-entering {
-  animation: slide-in-blurred-top-position-1 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-top-position-1 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
   animation-delay: 0.6s;
 }
 
 .Card-at-position-2.Card-entering {
-  animation: slide-in-blurred-top-position-2 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-top-position-2 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
   animation-delay: 0.3s;
 }
 
 .Card-at-position-3.Card-entering {
-  animation: slide-in-blurred-top-position-3 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-top-position-3 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
   animation-delay: 0s;
 }
 

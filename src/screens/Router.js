@@ -19,20 +19,19 @@ const mapStoresToProps = (stores: Stores) => ({
 @inject(mapStoresToProps)
 @observer
 export default class Root extends Component<Props> {
-  static defaultProps = {
-    currentScreen: "SPLASH"
-  };
-
   render() {
     let content;
     switch (this.props.currentScreen) {
       case "SPLASH":
+        // $FlowFixMe
         content = <Splash />;
         break;
       case "PLAYGROUND":
+        // $FlowFixMe
         content = <Playground />;
         break;
       case "SCORE":
+        // $FlowFixMe
         content = <Score />;
         break;
       default:

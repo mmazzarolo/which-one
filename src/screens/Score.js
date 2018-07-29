@@ -22,12 +22,6 @@ const mapStoresToProps = (stores: Stores) => ({
 @inject(mapStoresToProps)
 @observer
 export default class Splash extends Component<Props> {
-  static defaultProps = {
-    score: 0,
-    primaryColor: "blue",
-    navigateToPlayground: () => null
-  };
-
   @observable exiting: boolean = false;
 
   handleRetryClick = async () => {

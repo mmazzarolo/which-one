@@ -22,7 +22,7 @@ const mapStoresToProps = (stores: Stores) => ({
 @observer
 export default class Splash extends Component<Props> {
   static defaultProps = {
-    primaryColor: "blue",
+    primaryColor: "#A6E1DB",
     navigateToPlayground: () => null
   };
 

@@ -19,18 +19,17 @@ export default class GameStore {
   @observable leftImageId: number = 0;
   @observable rightImageId: number = 0;
   @observable timeLeft: number = 0;
-  @observable primaryColor: string = "#3f51b5";
+  @observable primaryColor: string = "#A6E1DB";
 
   constructor(routerStore: RouterStore) {
     this.routerStore = routerStore;
   }
 
   @action
-  startGame = async () => {
+  setupGame = () => {
     this.level = 0;
     this.score = 0;
-    this.running = true;
-    this.disabled = false;
+    this.disabled = true;
     // const imageIds = multiRandom(1, 8, 2);
     // this.leftImageId = imageIds[0];
     // this.rightImageId = imageIds[1];
@@ -46,6 +45,12 @@ export default class GameStore {
     // $FlowFixMe
     this.cards.replace(cards);
     this.currentCardIndex = 0;
+  };
+
+  @action
+  startGame = () => {
+    this.running = true;
+    this.disabled = false;
     this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
@@ -71,7 +76,7 @@ export default class GameStore {
     } else {
       this.currentCard.invalidate();
       this.disabled = true;
-      await delay(1000);
+      await delay(constants.ERROR_PENALITY_DELAY);
       this.disabled = false;
     }
     this.currentCardIndex = this.currentCardIndex += 1;

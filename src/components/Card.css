@@ -27,9 +27,9 @@
 }
 
 .Card > img {
-  width: 48vmin;
-  height: 48vmin;
-  padding: 2vmin;
+  width: 42vmin;
+  height: 42vmin;
+  padding: 4vmin;
 }
 
 .Card-mini {
@@ -40,8 +40,9 @@
 }
 
 .Card-mini > img {
-  width: 15vmin;
-  height: 15vmin;
+  width: 14vmin;
+  height: 14vmin;
+  padding: 2vmin;
 }
 
 .Card-invalid {
@@ -73,7 +74,7 @@
   z-index: 9;
   display: flex;
   opacity: 1;
-  transform: translateY(3vmin) scale(0.95);
+  transform: translateY(5vmin) scale(0.9);
   transition: transform 0.5s;
 }
 
@@ -81,7 +82,7 @@
   z-index: 8;
   display: flex;
   opacity: 1;
-  transform: translateY(6vmin) scale(0.9);
+  transform: translateY(10vmin) scale(0.8);
   transition: transform 0.5s;
 }
 
@@ -89,30 +90,30 @@
   z-index: 7;
   display: flex;
   opacity: 1;
-  transform: translateY(9vmin) scale(0.85);
+  transform: translateY(15vmin) scale(0.7);
   transition: transform 0.5s;
 }
 
 .Card-at-position-0.Card-entering {
-  animation: slide-in-blurred-top-position-0 0.5s cubic-bezier(0.23, 1, 0.32, 1)
-    both;
-  animation-delay: 0.9s;
-}
-
-.Card-at-position-1.Card-entering {
-  animation: slide-in-blurred-top-position-1 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+  animation: slide-in-blurred-top-position-0 0.4s cubic-bezier(0.23, 1, 0.32, 1)
     both;
   animation-delay: 0.6s;
 }
 
-.Card-at-position-2.Card-entering {
-  animation: slide-in-blurred-top-position-2 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+.Card-at-position-1.Card-entering {
+  animation: slide-in-blurred-top-position-1 0.4s cubic-bezier(0.23, 1, 0.32, 1)
     both;
-  animation-delay: 0.3s;
+  animation-delay: 0.4s;
+}
+
+.Card-at-position-2.Card-entering {
+  animation: slide-in-blurred-top-position-2 0.4s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
+  animation-delay: 0.2s;
 }
 
 .Card-at-position-3.Card-entering {
-  animation: slide-in-blurred-top-position-3 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+  animation: slide-in-blurred-top-position-3 0.4s cubic-bezier(0.23, 1, 0.32, 1)
     both;
   animation-delay: 0s;
 }
@@ -120,13 +121,13 @@
 @keyframes slide-in-blurred-top-position-0 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    filter: blur(40px);
+    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
     transform: translateY(0) scaleY(1) scaleX(1);
-    filter: blur(0);
+    /* filter: blur(0); */
     opacity: 1;
   }
 }
@@ -134,13 +135,13 @@
 @keyframes slide-in-blurred-top-position-1 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    filter: blur(40px);
+    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    filter: blur(0);
-    transform: translateY(3vmin) scale(0.95);
+    /* filter: blur(0); */
+    transform: translateY(5vmin) scale(0.9);
     opacity: 1;
   }
 }
@@ -148,13 +149,13 @@
 @keyframes slide-in-blurred-top-position-2 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    filter: blur(40px);
+    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    filter: blur(0);
-    transform: translateY(6vmin) scale(0.9);
+    /* filter: blur(0); */
+    transform: translateY(10vmin) scale(0.8);
     opacity: 1;
   }
 }
@@ -162,13 +163,13 @@
 @keyframes slide-in-blurred-top-position-3 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    filter: blur(40px);
+    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    filter: blur(0);
-    transform: translateY(9vmin) scale(0.85);
+    /* filter: blur(0); */
+    transform: translateY(15vmin) scale(0.7);
     opacity: 1;
   }
 }

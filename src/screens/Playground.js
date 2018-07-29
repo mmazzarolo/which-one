@@ -19,8 +19,10 @@ type Props = {
   rightImageId: number,
   score: number,
   timeLeft: number,
+  running: boolean,
   disabled: boolean,
   primaryColor: string,
+  setupGame: () => mixed,
   startGame: () => mixed,
   handleInput: ("left" | "right") => mixed
 };
@@ -30,10 +32,10 @@ const mapStoresToProps = (stores: Stores) => ({
   swipedCards: toJS(stores.game.swipedCards),
   leftImageId: stores.game.leftImageId,
   rightImageId: stores.game.rightImageId,
-  score: stores.game.score,
   timeLeft: stores.game.timeLeft,
+  running: stores.game.running,
   disabled: stores.game.disabled,
-  primaryColor: stores.game.primaryColor,
+  setupGame: stores.game.setupGame,
   startGame: stores.game.startGame,
   handleInput: stores.game.handleInput
 });
@@ -41,33 +43,21 @@ const mapStoresToProps = (stores: Stores) => ({
 @inject(mapStoresToProps)
 @observer
 export default class Playground extends Component<Props> {
-  static defaultProps = {
-    remainingCards: [],
-    swipedCards: [],
-    leftImageId: 0,
-    rightImageId: 0,
-    score: 0,
-    timeLeft: 0,
-    disabled: false,
-    primaryColor: "#3f51b5",
-    startGame: () => null,
-    handleInput: () => null
-  };
-
   @observable isAnimating = true;
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown, false);
-    this.props.startGame();
-    setTimeout(this.stopAnimating, constants.INITIAL_ANIMATION_TIME);
+    this.props.setupGame();
+    setTimeout(this.start, constants.INITIAL_ANIMATION_TIME);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
-  stopAnimating = () => {
+  start = () => {
     this.isAnimating = false;
+    this.props.startGame();
   };
 
   handleKeyDown = (event: KeyboardEvent) => {
@@ -117,9 +107,8 @@ export default class Playground extends Component<Props> {
       swipedCards,
       leftImageId,
       rightImageId,
-      score,
-      timeLeft,
-      primaryColor
+      running,
+      timeLeft
     } = this.props;
     const visibleRemainingCards = take(remainingCards, 5);
     const visibleSwipedCards = takeRight(swipedCards, 5);
@@ -135,7 +124,7 @@ export default class Playground extends Component<Props> {
         />
         <div className="Playground-header">
           <div />
-          <Timer time={timeLeft} />
+          {running && <Timer time={timeLeft} />}
         </div>
         <div className="Playground-stack">
           {visibleSwipedCards.map(this.renderVisibleSwipedCard)}
@@ -143,10 +132,10 @@ export default class Playground extends Component<Props> {
         </div>
         <div className="Playground-footer">
           <div className="Playground-footer-left-mini-card">
-            <Card position={0} imageId={leftImageId} valid mini />
+            {running && <Card position={0} imageId={leftImageId} valid mini />}
           </div>
           <div className="Playground-footer-right-mini-card">
-            <Card position={0} imageId={rightImageId} valid mini />
+            {running && <Card position={0} imageId={rightImageId} valid mini />}
           </div>
         </div>
       </div>

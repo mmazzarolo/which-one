@@ -1,17 +1,14 @@
 {
-  "name": "quickchose",
+  "name": "quickchoose",
   "version": "0.1.0",
-  "license": "ISC",
   "private": true,
-  "homepage": "https://mmazzarolo.github.io/quickchose",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject",
-    "precommit": "lint-staged",
     "prettify": "prettier --write 'src/**/*.js'",
     "lint": "eslint src",
     "flow": "flow src"
@@ -25,24 +22,18 @@
     "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
-    "react": "^16.4.1",
-    "react-app-rewire-mobx": "^1.0.8",
-    "react-app-rewired": "^1.5.2",
-    "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts-ts": "2.16.0"
   },
   "devDependencies": {
-    "eslint": "^5.2.0",
-    "eslint-plugin-react-app": "^3.0.0",
-    "flow-bin": "^0.77.0",
-    "husky": "0.14.3",
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.13.7"
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "prettier --write",
-      "git add"
-    ]
+    "@types/jest": "23.3.1",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "10.5.5",
+    "@types/react": "16.4.7",
+    "@types/react-dom": "16.0.6",
+    "prettier": "^1.14.0",
+    "typelevel-ts": "^0.3.1",
+    "typescript": "3.0.1"
   }
 }

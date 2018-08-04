@@ -1,0 +1,9 @@
+.TimerBar {
+  display: flex;
+  width: 100%;
+}
+
+.TimerBar-progress {
+  background-color: white;
+  height: 1vmin;
+}

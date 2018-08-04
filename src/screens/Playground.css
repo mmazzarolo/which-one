@@ -27,13 +27,10 @@
 
 .Playground-header {
   position: absolute;
-  height: 15vmin;
-  top: 20px;
+  top: 0px;
   width: 100%;
   max-width: 100vmin;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .Playground-score-text {

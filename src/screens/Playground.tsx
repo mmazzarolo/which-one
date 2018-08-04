@@ -4,7 +4,7 @@ import { inject, observer } from "mobx-react";
 import { take, takeRight } from "lodash";
 import Card from "../components/Card";
 import CardModel from "../models/Card";
-import Timer from "../components/Timer";
+import TimerBar from "../components/TimerBar";
 import constants from "../config/constants";
 import "./Playground.css";
 
@@ -120,8 +120,7 @@ class Playground extends React.Component<Props> {
           onTouchStart={this.handleRightOverlayTouch}
         />
         <div className="Playground-header">
-          <div />
-          {running && <Timer time={timeLeft} />}
+          {running && <TimerBar time={timeLeft} />}
         </div>
         <div className="Playground-stack">
           {visibleSwipedCards.map(this.renderVisibleSwipedCard)}

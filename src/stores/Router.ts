@@ -1,9 +1,10 @@
 import { action, observable } from "mobx";
 import { Screen } from "../types/Screen";
+import constants from "../config/constants";
 
 export default class RouterStore {
   @observable
-  public currentScreen: Screen = "PLAYGROUND";
+  public currentScreen: Screen = constants.INITIAL_SCREEN;
 
   @action
   public navigateToSplash = () => {

@@ -2,6 +2,7 @@ import * as React from "react";
 import { inject, observer } from "mobx-react";
 import Splash from "./Splash";
 import Playground from "./Playground";
+import Menu from "./Menu";
 import Score from "./Score";
 import { Stores } from "../types/Stores";
 import { Screen } from "../types/Screen";
@@ -19,6 +20,9 @@ class Router extends React.Component<Props> {
   public render() {
     let content;
     switch (this.props.currentScreen) {
+      case "MENU":
+        content = <Menu />;
+        break;
       case "SPLASH":
         content = <Splash />;
         break;

@@ -1,0 +1,17 @@
+.Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  animation: slide-in-right 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.Menu-title {
+  text-align: center;
+  font-size: 10vmin;
+  color: white;
+  word-spacing: 100000px;
+  /* transform: rotate(-10deg); */
+}

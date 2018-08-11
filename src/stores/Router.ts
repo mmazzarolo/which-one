@@ -7,6 +7,10 @@ export default class RouterStore {
   public currentScreen: Screen = constants.INITIAL_SCREEN;
 
   @action
+  public navigateToMenu = () => {
+    this.currentScreen = "MENU";
+  };
+  @action
   public navigateToSplash = () => {
     this.currentScreen = "SPLASH";
   };
@@ -15,7 +19,7 @@ export default class RouterStore {
     this.currentScreen = "PLAYGROUND";
   };
   @action
-  public navigateToScore = () => {
-    this.currentScreen = "SCORE";
+  public navigateToResult = () => {
+    this.currentScreen = "RESULT";
   };
 }

@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 import Splash from "./Splash";
 import Playground from "./Playground";
 import Menu from "./Menu";
-import Score from "./Score";
+import Result from "./Result";
 import { Stores } from "../types/Stores";
 import { Screen } from "../types/Screen";
 import "./Router.css";
@@ -29,8 +29,8 @@ class Router extends React.Component<Props> {
       case "PLAYGROUND":
         content = <Playground />;
         break;
-      case "SCORE":
-        content = <Score />;
+      case "RESULT":
+        content = <Result />;
         break;
       default:
         content = <div />;

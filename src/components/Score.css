@@ -1,0 +1,25 @@
+.Score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 10vmin;
+}
+
+.Score-label {
+  color: white;
+  margin-right: 2vmin;
+  font-weight: bold;
+}
+
+.Score-points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 0px 6vmin;
+  height: 12vmin;
+  font-weight: bold;
+  border-radius: 6vmin;
+}

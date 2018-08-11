@@ -63,7 +63,7 @@ export default class GameStore {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {
         clearInterval(timerInterval);
-        this.routerStore.navigateToScore();
+        this.routerStore.navigateToResult();
         return;
       }
     };

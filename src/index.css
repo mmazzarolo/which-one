@@ -8,6 +8,23 @@ body,
   width: 100%;
   overflow: hidden;
   touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+  touch-action: none;
+  overflow-x: hidden;
+  user-select: text;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  touch-action: manipulation;
+}
+
+p,
+span {
+  user-select: text;
+}
+
+* {
+  touch-action: none;
 }
 
 @keyframes scale-in-center {

@@ -24,8 +24,6 @@ export default class GameStore {
   public rightImageId: number = 0;
   @observable
   public timeLeft: number = 0;
-  @observable
-  public primaryColor: string = "#A6E1DB";
 
   private routerStore: RouterStore;
 

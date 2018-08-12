@@ -2,6 +2,7 @@
   "name": "quickchoose",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mmazzarolo.github.io/quickchose",
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
@@ -9,9 +10,7 @@
     "eject": "react-scripts-ts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "prettify": "prettier --write 'src/**/*.js'",
-    "lint": "eslint src",
-    "flow": "flow src"
+    "prettify": "prettier --write 'src/**/*.js'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.1",

@@ -3,7 +3,7 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 6vmin;
   height: 8vmin;
   cursor: pointer;

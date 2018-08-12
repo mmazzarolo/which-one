@@ -2,6 +2,9 @@
   display: flex;
   height: 100%;
   width: 100%;
+  background: linear-gradient(to bottom right, #aad8ff, #46a9fe);
+  background-size: 400% 400%;
+  animation: AnimationName 10s ease infinite;
 }
 
 .Menu-exiting {
@@ -20,22 +23,39 @@
 
 .Menu-logo {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+  width: 80vmin;
+  height: 80vmin;
+  animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
-.Menu-logo img {
-  filter: invert(100%) drop-shadow(0px 6px 20px rgba(0, 0, 0, 0.1));
-  height: 18vmin;
-  width: 18vmin;
+@media (min-aspect-ratio: 2/3) {
+  .Menu-logo {
+    width: 60vmin;
+    height: 60vmin;
+  }
 }
 
-.Menu-logo p {
-  text-align: center;
-  font-size: 12vmin;
-  color: white;
-  margin-left: 3vmin;
-  text-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+@keyframes puff-in-center {
+  0% {
+    transform: scale(2);
+    filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

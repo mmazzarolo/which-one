@@ -4,6 +4,6 @@
 }
 
 .TimerBar-progress {
-  background-color: white;
-  height: 1vmin;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 2vmin;
 }

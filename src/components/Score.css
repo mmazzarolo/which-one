@@ -10,7 +10,6 @@
 .Score-label {
   color: white;
   margin-right: 2vmin;
-  /* font-weight: bold; */
 }
 
 .Score-points {
@@ -21,7 +20,6 @@
   padding: 0px 6vmin;
   font-size: 9vmin;
   height: 12vmin;
-  /* font-weight: bold; */
   border-radius: 6vmin;
   vertical-align: middle;
 }

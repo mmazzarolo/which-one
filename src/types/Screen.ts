@@ -1,1 +1,1 @@
-export type Screen = "MENU" | "SPLASH" | "PLAYGROUND" | "RESULT";
+export type Screen = "MENU" | "PLAYGROUND" | "RESULT";

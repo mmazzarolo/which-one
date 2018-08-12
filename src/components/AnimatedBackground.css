@@ -1,0 +1,8 @@
+.AnimatedBackground {
+  height: 100%;
+  width: 100%;
+}
+
+.AnimatedBackground-exiting {
+  animation: slide-out-left 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+}

@@ -1,18 +1,5 @@
 .Menu {
   display: flex;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to bottom right, #aad8ff, #46a9fe);
-  background-size: 400% 400%;
-  animation: AnimationName 10s ease infinite;
-}
-
-.Menu-exiting {
-  animation: slide-out-left 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-.Menu-body {
-  display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
@@ -45,17 +32,5 @@
     transform: scale(1);
     filter: blur(0px);
     opacity: 1;
-  }
-}
-
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }

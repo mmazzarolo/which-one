@@ -28,8 +28,12 @@ export default class Button extends React.Component<Props> {
       onClick
     } = this.props;
     let className = `Button`;
-    if (type === "flat") className = `${className} Button-flat`;
-    if (type === "raised") className = `${className} Button-raised`;
+    if (type === "flat") { 
+      className = `${className} Button-flat`; 
+    }
+    if (type === "raised") { 
+      className = `${className} Button-raised`; 
+    }
     return (
       <div
         className={className}

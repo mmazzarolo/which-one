@@ -14,7 +14,7 @@ export default class Score extends React.Component<Props> {
     return (
       <div className="Score">
         <p className="Score-label">Score: </p>
-        <p className="Score-points" style={{ color: color }}>
+        <p className="Score-points" style={{ color }}>
           {score}
         </p>
       </div>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { observable, toJS } from "mobx";
 import { inject, observer } from "mobx-react";
 import { take, takeRight } from "lodash";
+import AnimatedBackground from "../components/AnimatedBackground";
 import Card from "../components/Card";
 import CardModel from "../models/Card";
 import TimerBar from "../components/TimerBar";
@@ -9,6 +10,9 @@ import constants from "../config/constants";
 import "./Playground.css";
 
 import { Stores } from "../types/Stores";
+
+export const PLAYGROUND_BG_COLOR_1 = "#eae4de";
+export const PLAYGROUND_BG_COLOR_2 = "#eae4de";
 
 interface Props {
   remainingCards: CardModel[];
@@ -19,6 +23,7 @@ interface Props {
   timeLeft: number;
   running: boolean;
   disabled: boolean;
+  isNavigating: boolean;
   setupGame: () => void;
   startGame: () => void;
   handleInput: (input: "left" | "right") => Promise<void>;
@@ -35,6 +40,7 @@ const mapStoresToProps = (stores: Stores) => ({
   disabled: stores.game.disabled,
   setupGame: stores.game.setupGame,
   startGame: stores.game.startGame,
+  isNavigating: stores.router.isNavigating,
   handleInput: stores.game.handleInput
 });
 
@@ -100,6 +106,7 @@ class Playground extends React.Component<Props> {
 
   public render() {
     const {
+      isNavigating,
       remainingCards,
       swipedCards,
       leftImageId,
@@ -110,45 +117,51 @@ class Playground extends React.Component<Props> {
     const visibleRemainingCards = take(remainingCards, 5);
     const visibleSwipedCards = takeRight(swipedCards, 5);
     return (
-      <div className="Playground">
-        <div
-          className="Playground-touch-overlay-left"
-          onTouchStart={this.handleLeftOverlayTouch}
-        />
-        <div
-          className="Playground-touch-overlay-right"
-          onTouchStart={this.handleRightOverlayTouch}
-        />
-        <div className="Playground-header">
-          {running && <TimerBar time={timeLeft} />}
-        </div>
-        <div className="Playground-stack">
-          {visibleSwipedCards.map(this.renderVisibleSwipedCard)}
-          {visibleRemainingCards.map(this.renderVisibleRemainingCard)}
-        </div>
-        <div className="Playground-footer">
-          <div className="Playground-footer-left-mini-card">
-            {running && (
-              <Card
-                position={0}
-                imageId={leftImageId}
-                valid={true}
-                mini={true}
-              />
-            )}
+      <AnimatedBackground
+        backgroundColor1={PLAYGROUND_BG_COLOR_1}
+        backgroundColor2={PLAYGROUND_BG_COLOR_2}
+        isExiting={isNavigating}
+      >
+        <div className="Playground">
+          <div
+            className="Playground-touch-overlay-left"
+            onTouchStart={this.handleLeftOverlayTouch}
+          />
+          <div
+            className="Playground-touch-overlay-right"
+            onTouchStart={this.handleRightOverlayTouch}
+          />
+          <div className="Playground-header">
+            {running && <TimerBar time={timeLeft} />}
           </div>
-          <div className="Playground-footer-right-mini-card">
-            {running && (
-              <Card
-                position={0}
-                imageId={rightImageId}
-                valid={true}
-                mini={true}
-              />
-            )}
+          <div className="Playground-stack">
+            {visibleSwipedCards.map(this.renderVisibleSwipedCard)}
+            {visibleRemainingCards.map(this.renderVisibleRemainingCard)}
+          </div>
+          <div className="Playground-footer">
+            <div className="Playground-footer-left-mini-card">
+              {running && (
+                <Card
+                  position={0}
+                  imageId={leftImageId}
+                  valid={true}
+                  mini={true}
+                />
+              )}
+            </div>
+            <div className="Playground-footer-right-mini-card">
+              {running && (
+                <Card
+                  position={0}
+                  imageId={rightImageId}
+                  valid={true}
+                  mini={true}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatedBackground>
     );
   }
 }

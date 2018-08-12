@@ -1,30 +1,32 @@
 import * as React from "react";
 import { inject, observer } from "mobx-react";
-import Splash from "./Splash";
 import Playground from "./Playground";
 import Menu from "./Menu";
 import Result from "./Result";
+import AnimatedBackground from "../components/AnimatedBackground";
 import { Stores } from "../types/Stores";
 import { Screen } from "../types/Screen";
 import "./Router.css";
 
 interface Props {
   currentScreen: Screen;
+  backgroundColor1: string;
+  backgroundColor2: string;
 }
 
 const mapStoresToProps = (stores: Stores) => ({
-  currentScreen: stores.router.currentScreen
+  currentScreen: stores.router.currentScreen,
+  backgroundColor1: stores.router.currentScreenBackgroundColor1,
+  backgroundColor2: stores.router.currentScreenBackgroundColor2
 });
 
 class Router extends React.Component<Props> {
   public render() {
+    const { currentScreen, backgroundColor1, backgroundColor2 } = this.props;
     let content;
-    switch (this.props.currentScreen) {
+    switch (currentScreen) {
       case "MENU":
         content = <Menu />;
-        break;
-      case "SPLASH":
-        content = <Splash />;
         break;
       case "PLAYGROUND":
         content = <Playground />;
@@ -36,7 +38,14 @@ class Router extends React.Component<Props> {
         content = <div />;
         break;
     }
-    return <div className="Router">{content}</div>;
+    return (
+      <AnimatedBackground
+        backgroundColor1={backgroundColor1}
+        backgroundColor2={backgroundColor2}
+      >
+        {content}
+      </AnimatedBackground>
+    );
   }
 }
 

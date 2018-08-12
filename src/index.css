@@ -4,7 +4,6 @@ body,
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  /* font-family: "Pacifico", cursive; */
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -20,26 +19,6 @@ body,
   100% {
     transform: scale(1);
     opacity: 1;
-  }
-}
-
-@keyframes scale-up-center {
-  0% {
-    transform: scale(0);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes scale-down-center {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
   }
 }
 
@@ -75,26 +54,6 @@ body,
   }
 }
 
-@keyframes swirl-out-bck {
-  0% {
-    transform: rotate(0) scale(1);
-  }
-
-  100% {
-    transform: rotate(-540deg) scale(0);
-  }
-}
-
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(100%);
-  }
-
-  100% {
-    transform: translateX(0%);
-  }
-}
-
 @keyframes slide-out-left {
   0% {
     transform: translateX(0%);
@@ -102,5 +61,32 @@ body,
 
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes swipe-right {
+  to {
+    opacity: 0;
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+}
+
+@keyframes swipe-left {
+  to {
+    opacity: 0;
+    transform: rotate3d(0, 0, 1, -20deg);
+  }
+}
+
+@keyframes puff-in-center {
+  0% {
+    transform: scale(2);
+    filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
   }
 }

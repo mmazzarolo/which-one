@@ -1,17 +1,3 @@
-@keyframes swipe-right {
-  to {
-    opacity: 0;
-    transform: rotate3d(0, 0, 1, 20deg);
-  }
-}
-
-@keyframes swipe-left {
-  to {
-    opacity: 0;
-    transform: rotate3d(0, 0, 1, -20deg);
-  }
-}
-
 .Card {
   display: none;
   position: absolute;
@@ -121,13 +107,11 @@
 @keyframes slide-in-blurred-top-position-0 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
     transform: translateY(0) scaleY(1) scaleX(1);
-    /* filter: blur(0); */
     opacity: 1;
   }
 }
@@ -135,12 +119,10 @@
 @keyframes slide-in-blurred-top-position-1 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    /* filter: blur(0); */
     transform: translateY(5vmin) scale(0.9);
     opacity: 1;
   }
@@ -149,12 +131,10 @@
 @keyframes slide-in-blurred-top-position-2 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    /* filter: blur(0); */
     transform: translateY(10vmin) scale(0.8);
     opacity: 1;
   }
@@ -163,12 +143,10 @@
 @keyframes slide-in-blurred-top-position-3 {
   0% {
     transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    /* filter: blur(40px); */
     opacity: 0;
   }
 
   100% {
-    /* filter: blur(0); */
     transform: translateY(15vmin) scale(0.7);
     opacity: 1;
   }

@@ -1,6 +1,7 @@
 .TimerBar {
   display: flex;
   width: 100%;
+  animation: fade-in 0.2s linear;
 }
 
 .TimerBar-progress {

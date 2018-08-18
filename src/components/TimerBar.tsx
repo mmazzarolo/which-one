@@ -11,10 +11,21 @@ interface Props {
 @observer
 export default class TimerBar extends React.Component<Props> {
   public render() {
-    const progress = (100 / constants.TIME_LIMIT_IN_SECONDS) * this.props.time;
+    const { time } = this.props;
+    const progress = (100 / constants.TIME_LIMIT_IN_SECONDS) * time;
+    const redValue = (255 / 100) * (100 - progress);
+    const opacity = 0.2 + (0.4 / 100) * (100 - progress);
+    const backgroundColor = `rgba(${redValue},0,0,${opacity})`;
     return (
       <div className="TimerBar">
-        <div className="TimerBar-progress" style={{ width: `${progress}%` }} />
+        <div
+          className="TimerBar-progress"
+          style={{
+            width: `${progress}%`,
+            backgroundColor: backgroundColor,
+            boxShadow: `0px 0px 1rem 0px ${backgroundColor}`
+          }}
+        />
       </div>
     );
   }

@@ -32,7 +32,6 @@
   position: absolute;
   top: 0px;
   width: 100%;
-  max-width: 100vmin;
   display: flex;
 }
 

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mmazzarolo.github.io/quickchose",
   "scripts": {
+    "postinstall": "sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.dev.js && sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.prod.js",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
@@ -18,10 +19,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.1",
     "@fortawesome/react-fontawesome": "^0.1.0",
     "gh-pages": "^1.2.0",
+    "install": "^0.12.1",
     "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
+    "npm": "^6.4.0",
+    "postcss-cssnext": "^3.1.0",
     "react": "^16.4.2",
+    "react-custom-properties": "^1.2.0",
     "react-dom": "^16.4.2",
     "react-scripts-ts": "2.16.0"
   },

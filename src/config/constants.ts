@@ -1,6 +1,6 @@
 import { Screen } from "../types/Screen";
 
-const initialScreen: Screen = "PLAYGROUND";
+const initialScreen: Screen = "MENU";
 
 export default {
   INITIAL_SCREEN: initialScreen,

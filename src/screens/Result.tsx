@@ -3,6 +3,7 @@ import { inject, observer } from "mobx-react";
 import { Stores } from "../types/Stores";
 import AnimatedBackground from "../components/AnimatedBackground";
 import Button from "../components/Button";
+import Confetti from "../components/Confetti";
 import Score from "../components/Score";
 import "./Result.css";
 
@@ -11,6 +12,7 @@ export const RESULT_BG_COLOR_2 = "#fc7987";
 
 interface Props {
   score: number;
+  hasHighScored: boolean;
   isNavigating: boolean;
   navigateToPlayground: () => void;
   navigateToMenu: () => void;
@@ -18,6 +20,7 @@ interface Props {
 
 const mapStoresToProps = (stores: Stores) => ({
   score: stores.game.score,
+  hasHighScored: stores.stats.hasHighScored,
   isNavigating: stores.router.isNavigating,
   navigateToPlayground: stores.router.navigateToPlayground,
   navigateToMenu: stores.router.navigateToMenu
@@ -27,6 +30,7 @@ class Result extends React.Component<Props> {
   public render() {
     const {
       score,
+      hasHighScored,
       isNavigating,
       navigateToMenu,
       navigateToPlayground
@@ -37,6 +41,7 @@ class Result extends React.Component<Props> {
         backgroundColor2={RESULT_BG_COLOR_2}
         isExiting={isNavigating}
       >
+        {hasHighScored && <Confetti />}
         <div className="Result">
           <Score color={RESULT_BG_COLOR_1} score={score} />
           <div className="Result-buttons">

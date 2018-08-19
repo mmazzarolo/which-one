@@ -26,6 +26,7 @@
     "npm": "^6.4.0",
     "postcss-cssnext": "^3.1.0",
     "react": "^16.4.2",
+    "react-confetti": "^2.3.0",
     "react-custom-properties": "^1.2.0",
     "react-dom": "^16.4.2",
     "react-scripts-ts": "2.16.0"

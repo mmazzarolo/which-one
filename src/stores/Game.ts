@@ -75,6 +75,7 @@ export default class GameStore {
 
   @action
   public endGame = () => {
+    this.disabled = true;
     this.statsStore.increaseNumOfPlays();
     this.statsStore.setHighScore(this.score);
     this.routerStore.navigateToResult();

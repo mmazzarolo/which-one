@@ -6,6 +6,8 @@ export default class StatsStore {
   public numOfPlays: number = 0;
   @observable
   public highScore: number = 0;
+  @observable
+  public hasHighScored: boolean = false;
 
   constructor() {
     this.rehydrateStore();
@@ -21,6 +23,9 @@ export default class StatsStore {
   public setHighScore = (score: number) => {
     if (score > this.highScore) {
       this.highScore = score;
+      this.hasHighScored = true;
+    } else {
+      this.hasHighScored = false;
     }
   };
 

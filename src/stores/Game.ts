@@ -40,6 +40,7 @@ export default class GameStore {
     this.level = 0;
     this.score = 0;
     this.disabled = true;
+    this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
     // const imageIds = multiRandom(1, 8, 2);
     // this.leftImageId = imageIds[0];
     // this.rightImageId = imageIds[1];
@@ -61,7 +62,6 @@ export default class GameStore {
     soundService.playGameStartSound();
     this.running = true;
     this.disabled = false;
-    this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {
@@ -76,6 +76,7 @@ export default class GameStore {
   @action
   public endGame = () => {
     this.disabled = true;
+    this.running = false;
     this.statsStore.increaseNumOfPlays();
     this.statsStore.setHighScore(this.score);
     this.routerStore.navigateToResult();

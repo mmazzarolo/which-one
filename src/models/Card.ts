@@ -4,13 +4,13 @@ export default class Card {
   @observable
   public index: number;
   @observable
-  public imageId: number;
+  public imageId: string;
   @observable
   public swipedDirection: "left" | "right";
   @observable
   public valid: boolean | null = null;
 
-  constructor(index: number, imageId: number) {
+  constructor(index: number, imageId: string) {
     this.index = index;
     this.imageId = imageId;
   }

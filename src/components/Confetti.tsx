@@ -2,9 +2,7 @@ import * as React from "react";
 import ReactConfetti from "react-confetti";
 import "./Confetti.css";
 
-interface Props {}
-
-class Confetti extends React.Component<Props> {
+class Confetti extends React.Component {
   public render() {
     return (
       <div className="Confetti">

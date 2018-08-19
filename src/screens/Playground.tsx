@@ -17,8 +17,8 @@ export const PLAYGROUND_BG_COLOR_2 = "#eae4de";
 interface Props {
   remainingCards: CardModel[];
   swipedCards: CardModel[];
-  leftImageId: number;
-  rightImageId: number;
+  leftImageId: string;
+  rightImageId: string;
   score: number;
   timeLeft: number;
   running: boolean;

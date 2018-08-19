@@ -5,7 +5,7 @@ import getDifferentLuminance from "../utils/getDifferentLuminance";
 import "./Card.css";
 
 interface Props {
-  imageId: number;
+  imageId: string;
   position: number;
   swipedDirection?: "left" | "right";
   valid: boolean | null;

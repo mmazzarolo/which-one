@@ -21,9 +21,9 @@ export default class GameStore {
   @observable
   public currentCardIndex: number = 0;
   @observable
-  public leftImageId: number = 0;
+  public leftImageId: string = "";
   @observable
-  public rightImageId: number = 0;
+  public rightImageId: string = "";
   @observable
   public timeLeft: number = 0;
 
@@ -45,12 +45,12 @@ export default class GameStore {
     // this.leftImageId = imageIds[0];
     // this.rightImageId = imageIds[1];
     const imageIds = [1, 2];
-    this.leftImageId = 1;
-    this.rightImageId = 2;
+    this.leftImageId = "flowers.1";
+    this.rightImageId = "flowers.2";
     const cards: Card[] = [];
     times(999, index => {
-      const imageId = sample(imageIds);
-      const card = new Card(index, imageId || 0);
+      const imageId = `flowers.${sample(imageIds)}`;
+      const card = new Card(index, imageId);
       cards.push(card);
     });
     this.cards.replace(cards);

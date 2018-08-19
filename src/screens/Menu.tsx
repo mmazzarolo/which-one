@@ -10,20 +10,20 @@ export const MENU_BG_COLOR_1 = "#89C8FE";
 export const MENU_BG_COLOR_2 = "#c4e2fc";
 
 interface Props {
-  score: number;
+  highScore: number;
   isNavigating: boolean;
   navigateToPlayground: () => void;
 }
 
 const mapStoresToProps = (stores: Stores) => ({
-  score: stores.game.score,
+  highScore: stores.stats.highScore,
   isNavigating: stores.router.isNavigating,
   navigateToPlayground: stores.router.navigateToPlayground
 });
 
 class Menu extends React.Component<Props> {
   public render() {
-    const { isNavigating, navigateToPlayground } = this.props;
+    const { isNavigating, navigateToPlayground, highScore } = this.props;
     return (
       <AnimatedBackground
         backgroundColor1={MENU_BG_COLOR_1}
@@ -32,12 +32,17 @@ class Menu extends React.Component<Props> {
       >
         <div className="Menu">
           <img src={logoImage} className="Menu-logo" />
-          <Button
-            label="Play"
-            color={MENU_BG_COLOR_1}
-            onClick={navigateToPlayground}
-            animationDelay={1000}
-          />
+          <div className="Menu-bottom">
+            <Button
+              label="Play"
+              color={MENU_BG_COLOR_1}
+              onClick={navigateToPlayground}
+              animationDelay={1000}
+            />
+            {highScore > 0 && (
+              <p className="Menu-score">{`High score: ${highScore}`}</p>
+            )}
+          </div>
         </div>
       </AnimatedBackground>
     );

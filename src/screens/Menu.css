@@ -21,3 +21,17 @@
     height: 60vmin;
   }
 }
+
+.Menu-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Menu-score {
+  margin-top: 10vmin;
+  color: white;
+  font-size: 5vmin;
+  animation: fade-in 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  animation-delay: 1100ms;
+}

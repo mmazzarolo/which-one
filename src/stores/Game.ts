@@ -2,6 +2,7 @@ import { action, computed, observable } from "mobx";
 import { sample, times } from "lodash";
 import Card from "../models/Card";
 import RouterStore from "./Router";
+import StatsStore from "./Stats";
 import constants from "../config/constants";
 import delay from "../utils/delay";
 import soundService from "../services/soundService";
@@ -27,9 +28,11 @@ export default class GameStore {
   public timeLeft: number = 0;
 
   private routerStore: RouterStore;
+  private statsStore: StatsStore;
 
-  constructor(routerStore: RouterStore) {
+  constructor(routerStore: RouterStore, statsStore: StatsStore) {
     this.routerStore = routerStore;
+    this.statsStore = statsStore;
   }
 
   @action
@@ -62,12 +65,19 @@ export default class GameStore {
     const timer = () => {
       this.timeLeft = this.timeLeft - 1;
       if (this.timeLeft <= 0) {
+        this.endGame();
         clearInterval(timerInterval);
-        this.routerStore.navigateToResult();
         return;
       }
     };
     const timerInterval = setInterval(timer, 1000);
+  };
+
+  @action
+  public endGame = () => {
+    this.statsStore.increaseNumOfPlays();
+    this.statsStore.setHighScore(this.score);
+    this.routerStore.navigateToResult();
   };
 
   @action

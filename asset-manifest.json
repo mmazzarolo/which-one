@@ -1,9 +1,12 @@
 {
-  "main.css": "static/css/main.df99eb82.css",
-  "main.css.map": "static/css/main.df99eb82.css.map",
-  "main.js": "static/js/main.6a1cecbc.js",
-  "main.js.map": "static/js/main.6a1cecbc.js.map",
+  "main.css": "static/css/main.ccdddb69.css",
+  "main.css.map": "static/css/main.ccdddb69.css.map",
+  "main.js": "static/js/main.97024ca3.js",
+  "main.js.map": "static/js/main.97024ca3.js.map",
   "static/media/flowers-1.svg": "static/media/flowers-1.0f7809ed.svg",
   "static/media/flowers-2.svg": "static/media/flowers-2.efee666a.svg",
+  "static/media/game-start.mp3": "static/media/game-start.208598ac.mp3",
+  "static/media/swipe-failure.mp3": "static/media/swipe-failure.dbeee827.mp3",
+  "static/media/swipe-success.mp3": "static/media/swipe-success.ad46c438.mp3",
   "static/media/which-one-tagline.png": "static/media/which-one-tagline.bbc90273.png"
 }

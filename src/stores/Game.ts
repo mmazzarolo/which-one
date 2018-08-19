@@ -4,6 +4,7 @@ import Card from "../models/Card";
 import RouterStore from "./Router";
 import constants from "../config/constants";
 import delay from "../utils/delay";
+import soundService from "../services/soundService";
 
 export default class GameStore {
   @observable
@@ -54,6 +55,7 @@ export default class GameStore {
 
   @action
   public startGame = () => {
+    soundService.playGameStartSound();
     this.running = true;
     this.disabled = false;
     this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
@@ -78,9 +80,11 @@ export default class GameStore {
       (input === "left" && this.currentCard.imageId === this.leftImageId) ||
       (input === "right" && this.currentCard.imageId === this.rightImageId);
     if (inputValid) {
+      soundService.playSwipeSuccessSound();
       this.score += 1;
       this.currentCard.validate();
     } else {
+      soundService.playSwipeFailureSound();
       this.currentCard.invalidate();
       this.disabled = true;
       await delay(constants.ERROR_PENALITY_DELAY);

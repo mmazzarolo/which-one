@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 import { Stores } from "../types/Stores";
 import Button from "../components/Button";
 import AnimatedBackground from "../components/AnimatedBackground";
-import logoImage from "../assets/images/which-one-tagline.png";
+import logoImage from "../assets/images/which-one-logo.png";
 import "./Menu.css";
 
 export const MENU_BG_COLOR_1 = "#89C8FE";

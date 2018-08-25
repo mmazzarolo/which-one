@@ -5,6 +5,7 @@ import AnimatedBackground from "../components/AnimatedBackground";
 import Button from "../components/Button";
 import Confetti from "../components/Confetti";
 import Score from "../components/Score";
+import newRecordImage from "../assets/images/new-record.png";
 import "./Result.css";
 
 export const RESULT_BG_COLOR_1 = "#D44D5C";
@@ -43,7 +44,12 @@ class Result extends React.Component<Props> {
       >
         {hasHighScored && <Confetti />}
         <div className="Result">
-          <Score color={RESULT_BG_COLOR_1} score={score} />
+          <div>
+            {hasHighScored && (
+              <img src={newRecordImage} className="Result-new-record-image" />
+            )}
+            <Score color={RESULT_BG_COLOR_1} score={score} />
+          </div>
           <div className="Result-buttons">
             <Button
               label="Restart"

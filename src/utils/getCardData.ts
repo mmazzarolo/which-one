@@ -1,9 +1,10 @@
-import { get } from "lodash";
-import cards from "../config/cards";
+import cards from "../config/availableCards";
 
-const getCardData = (id: string): { src: string; backgroundColor: string } => {
-  const cardData = get(cards, id);
-  return cardData;
+import { CardData } from "../types/CardData";
+
+const getCardData = (id: string): CardData => {
+  const cardData = cards.find(x => x.id === id);
+  return cardData || cards[0];
 };
 
 export default getCardData;

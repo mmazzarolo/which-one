@@ -26,8 +26,8 @@ export default class Card extends React.Component<Props> {
       ...otherProps
     } = this.props;
     const cardData = getCardData(imageId);
-    const { src, backgroundColor } = cardData;
-    const shadowColor = getDifferentLuminance(backgroundColor, -0.2);
+    const { imgSrc, color } = cardData;
+    const shadowColor = getDifferentLuminance(color, -0.2);
     const classNames = [];
     classNames.push(`Card-at-position-${position}`);
     if (swipedDirection && valid === false) {
@@ -53,12 +53,12 @@ export default class Card extends React.Component<Props> {
       <div
         className={`Card ${classNames.join(" ")}`}
         style={{
-          backgroundColor,
+          backgroundColor: color,
           boxShadow: `0 0.6vmin 0 ${shadowColor}`
         }}
         {...otherProps}
       >
-        <img src={src} alt="" />
+        <img src={imgSrc} alt="" />
       </div>
     );
   }

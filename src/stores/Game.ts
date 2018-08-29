@@ -6,6 +6,7 @@ import StatsStore from "./Stats";
 import constants from "../config/constants";
 import delay from "../utils/delay";
 import soundService from "../services/soundService";
+import getRandomCardDataPair from "../utils/getRandomCardDataPair";
 
 export default class GameStore {
   @observable
@@ -41,16 +42,14 @@ export default class GameStore {
     this.score = 0;
     this.disabled = true;
     this.timeLeft = constants.TIME_LIMIT_IN_SECONDS;
-    // const imageIds = multiRandom(1, 8, 2);
-    // this.leftImageId = imageIds[0];
-    // this.rightImageId = imageIds[1];
-    const imageIds = [1, 2];
-    this.leftImageId = "flowers.1";
-    this.rightImageId = "flowers.2";
+    const cardDataPair = getRandomCardDataPair();
+    const cardIds = cardDataPair.map(x => x.id);
+    this.leftImageId = cardIds[0];
+    this.rightImageId = cardIds[1];
     const cards: Card[] = [];
     times(999, index => {
-      const imageId = `flowers.${sample(imageIds)}`;
-      const card = new Card(index, imageId);
+      const cardId = sample(cardIds) || "";
+      const card = new Card(index, cardId);
       cards.push(card);
     });
     this.cards.replace(cards);

@@ -14,10 +14,6 @@
     "prettify": "prettier --write 'src/**/*.js'"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.1",
-    "@fortawesome/free-regular-svg-icons": "^5.1.1",
-    "@fortawesome/free-solid-svg-icons": "^5.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.0",
     "gh-pages": "^1.2.0",
     "install": "^0.12.1",
     "lodash": "^4.17.10",
@@ -27,7 +23,6 @@
     "postcss-cssnext": "^3.1.0",
     "react": "^16.4.2",
     "react-confetti": "^2.3.0",
-    "react-custom-properties": "^1.2.0",
     "react-dom": "^16.4.2",
     "react-scripts-ts": "2.16.0"
   },

@@ -6,8 +6,8 @@ import AnimatedBackground from "../components/AnimatedBackground";
 import logoImage from "../assets/images/which-one-logo.png";
 import "./Menu.css";
 
-export const MENU_BG_COLOR_1 = "#89C8FE";
-export const MENU_BG_COLOR_2 = "#c4e2fc";
+export const MENU_BG_COLOR_1 = "#3682EC";
+export const MENU_BG_COLOR_2 = "#7549E3";
 
 interface Props {
   highScore: number;
@@ -35,7 +35,7 @@ class Menu extends React.Component<Props> {
           <div className="Menu-bottom">
             <Button
               label="Play"
-              color={MENU_BG_COLOR_1}
+              color={MENU_BG_COLOR_2}
               onClick={navigateToPlayground}
               animationDelay={1000}
             />

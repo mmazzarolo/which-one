@@ -1,8 +1,8 @@
 {
-  "name": "quickchoose",
+  "name": "which-one",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mmazzarolo.github.io/quickchose",
+  "homepage": "https://mmazzarolo.github.io/which-one",
   "scripts": {
     "postinstall": "sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.dev.js && sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.prod.js",
     "start": "react-scripts-ts start",

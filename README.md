@@ -6,7 +6,7 @@
 &nbsp;  
 &nbsp;
 
-Which One is a small game (PWA?) about choosing between left and right.
+Which One is a small game (PWA?) about... choosing between left and right.
 
 &nbsp;  
 &nbsp;

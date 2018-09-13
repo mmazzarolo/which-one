@@ -17,7 +17,6 @@
     "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
-    "postcss-cssnext": "^3.1.0",
     "react": "^16.4.2",
     "react-confetti": "^2.3.0",
     "react-dom": "^16.4.2",

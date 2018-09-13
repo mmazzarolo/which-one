@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://mmazzarolo.github.io/which-one",
   "scripts": {
-    "postinstall": "sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.dev.js && sed -i.bak \"s/[[:space:]]require('postcss-flexbugs-fixes')/require('postcss-cssnext'),require('postcss-flexbugs-fixes')/g\" node_modules/react-scripts-ts/config/webpack.config.prod.js",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",

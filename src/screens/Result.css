@@ -8,22 +8,13 @@
   animation: fade-in 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
-.Result-new-record {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  top: -6vmin;
-  height: 50%;
-  width: 100%;
-}
 .Result-new-record-image {
   height: 100%;
   width: 70%;
   object-fit: contain;
   margin-bottom: 5vmin;
   margin-top: -20vmin;
+  max-width: 90vmin;
 }
 
 .Result-buttons {

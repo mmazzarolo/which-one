@@ -28,7 +28,7 @@
 - Card set can be easily customized
 
 
-### Stuff I learned while building it
+### Things I learned while building it
 #### TypeScript and MobX works really well together
 I did try the TypeScript + MobX combo in the past but I wasn't able to type the `inject` as I wanted.  
 In fact, instead of injecting the entire stores, I like to pass to the `inject` a function (that I call `mapStoresToProps`) that allows me to decouple the component/container from the store like with the Redux `mapStateToProps`.  

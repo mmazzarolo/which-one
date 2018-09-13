@@ -16,15 +16,13 @@ export default class TimerBar extends React.Component<Props> {
     const redValue = (255 / 100) * (100 - progress);
     const opacity = 0.2 + (0.4 / 100) * (100 - progress);
     const backgroundColor = `rgba(${redValue},0,0,${opacity})`;
-    const boxShadow = `0px 0px 1vmin 0px ${backgroundColor}`;
     return (
       <div className="TimerBar">
         <div
           className="TimerBar-progress"
           style={{
             width: `${progress}%`,
-            backgroundColor,
-            boxShadow
+            backgroundColor
           }}
         />
       </div>

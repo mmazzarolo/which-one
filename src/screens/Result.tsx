@@ -45,7 +45,7 @@ class Result extends React.Component<Props> {
         {hasHighScored && <Confetti />}
         <div className="Result">
           <div>
-            {!hasHighScored && (
+            {hasHighScored && (
               <img src={newRecordImage} className="Result-new-record-image" />
             )}
             <Score color={RESULT_BG_COLOR_1} score={score} />

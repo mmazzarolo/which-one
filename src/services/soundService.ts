@@ -7,10 +7,12 @@ const playSound = (src: string) => {
   // For reference:
   // https://www.ibm.com/developerworks/library/wa-ioshtml5/index.html#N1025A
   const isSafari = navigator.userAgent.indexOf("Safari") > -1;
-  if (!isSafari) {
-    const audio = new Audio(src);
-    audio.play();
+  const isChrome = navigator.userAgent.indexOf("Chrome") > -1;
+  if (isSafari && !isChrome) {
+    return;
   }
+  const audio = new Audio(src);
+  audio.play();
 };
 
 const playGameStartSound = () => {

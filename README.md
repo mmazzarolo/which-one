@@ -52,6 +52,9 @@ Yep, since Safari 11 the Web Audio API requires each audio.play() to be triggere
 There are a few workaround for the issue but I still haven't had a chance to test them so I just disables the sound effects on Safari.  
 See [New Video Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) and [Overcoming iOS HTML5 audio limitations](https://www.ibm.com/developerworks/library/wa-ioshtml5/index.html#N1025A)
 
-## Acknowledgments
+## Acknowledgments & Disclaimers
+
+Like a few other projects I published in the past, Which One is not intended to be a serious "game", it's just the result of playing around with new technologies.  
+I'm releasing it as OS because I believe it might be helpful to someone.  
 
 All the images and icons used in the project are available on [FlatIcon](https://www.flaticon.com/).

@@ -6,7 +6,7 @@
 &nbsp;  
 &nbsp;
 
-<p align="center">Which One is a small game built with React, TypeScript and MobX.</p>
+<p align="center">Which One is a small game that has been my playground for testing the TypeScript & Mobx combo</p>
 
 &nbsp;  
 &nbsp;
@@ -22,37 +22,42 @@
 
 ## Features overview
 
-- Built using create-react-app-ts and MobX
+- Built using [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript) and [MobX](https://github.com/mobxjs/mobx)
 - Can be used as a boilerplate for small React games
 - Fully responsive (looks better on mobile though)
 - PWA-like, works offline (still a bit of a WIP)
-- Card sets can be easily customized
+- Card sets can be easily customized and extended
 
 ### Things I learned while building it
 
 #### TypeScript and MobX work really well together
 
-I did try the TypeScript + MobX combo in the past but I wasn't able to type the `inject` as I wanted.  
-In fact, instead of injecting the entire stores, I like to pass to the `inject` a function (`mapStoresToProps`) that allows me to decouple the component/container from the stores, just like with the Redux `mapStateToProps`.  
-This time though I was able to fix it using [this nice little trick](https://github.com/mmazzarolo/which-one/blob/master/src/%40types/mobx-react.d.ts), suggested [here](https://github.com/mobxjs/mobx-react/issues/256), that makes the `inject` works perfectly 🎉.
+I already had a chance to try the TypeScript & MobX combo in the past but I wasn't able to type the `inject` as I wished.  
+In fact, instead of injecting the entire stores, I prefer passing to the `inject` a function (`mapStoresToProps`) that allows me to decouple the component/container from the stores, just like with the Redux `mapStateToProps`.  
+This time though I was able to fix it using [this nice little trick](https://github.com/mmazzarolo/which-one/blob/master/src/%40types/mobx-react.d.ts), suggested [here](https://github.com/mobxjs/mobx-react/issues/256), that makes the `inject` works nicely 🎉.
 
-#### Create-react-app-ts TSLint preset is still too strict
+#### Create-react-app-typescript TSLint preset is still too strict
 
-I've been followint this [issue](https://github.com/wmonk/create-react-app-typescript/issues/333) since its "discovery" and unfortunately it's still here.  
-The `create-react-app-ts` TSLint default settings are really _hardcore_ and you'll have to disable them manually in `tslint.json` (or use other complex workarounds).  
+I've been followint this [issue](https://github.com/wmonk/create-react-app-typescript/issues/333) since its "discovery" and unfortunately it's still here: the `create-react-app-typescript` TSLint default settings are really _hardcore_ and opinionated so you'll probably find yourself disabling a bunch of rules in `tslint.json` (or use other complex workarounds).  
 Hopefully it's going to be fixed soon.
 
 #### Mobile Safari touch delay is here to stay
 
-The touch delay on Safari for iOS is still here as well, and is super annoying when building small games like this.  
+The touch delay on Safari for iOS is still here as well, and is super annoying when building small React/HTML5 games like this one.  
 Playing on Chrome or by installing the app on the home screen works perfectly though.
 
 #### Safari doesn't allow playing audio without user interactions
 
 Yep, since Safari 11 the Web Audio API requires each audio.play() to be triggered manually (otherwise you'll get a `The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.` error).  
-There are a few workaround for the issue but I still haven't had a chance to test them so I just disable the sound effects on Safari.  
+There are a few workaround for the issue but I still haven't had a chance to test them so I just disables the sound effects on Safari.  
 See [New Video Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) and [Overcoming iOS HTML5 audio limitations](https://www.ibm.com/developerworks/library/wa-ioshtml5/index.html#N1025A)
 
-## Acknowledgments
+## Acknowledgments & Disclaimers
+
+## Acknowledgments & Disclaimers
+
+Like a few other projects I published in the past, Which One is not intended to be a serious "game", it's just the result of playing around with new technologies.  
+This also means that, since I didn't test it thoroughly, it might not work on specific browsers or devices.  
+That said, if you have any question/issue feel free to use the GitHub for sending PRs or starting issue discussions!
 
 All the images and icons used in the project are available on [FlatIcon](https://www.flaticon.com/).

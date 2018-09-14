@@ -28,6 +28,14 @@
 - PWA-like, works offline (still a bit of a WIP)
 - Card sets can be easily customized and extended
 
+## Known issues
+
+The current version of the project has a few known issues that I haven't had a chance to fix yet:
+
+- On Safari desktop/mobile the audio is not working (see below)
+- On Safari mobile there's a touch delay. It goes away if you save the app to the homescreen and start it from there (see below)
+- On the latest version of Chrome for iOS, for some reasons, the CSS animations are not working smoothly (they were working fine before the Chrome MD redesing)
+
 ### Things I learned while building it
 
 #### TypeScript and MobX work really well together
@@ -44,15 +52,13 @@ Hopefully it's going to be fixed soon.
 #### Mobile Safari touch delay is here to stay
 
 The touch delay on Safari for iOS is still here as well, and is super annoying when building small React/HTML5 games like this one.  
-Playing on Chrome or by installing the app on the home screen works perfectly though.
+It should be fixable by playing around with CSS and react-pointable.
 
 #### Safari doesn't allow playing audio without user interactions
 
 Yep, since Safari 11 the Web Audio API requires each audio.play() to be triggered manually (otherwise you'll get a `The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.` error).  
 There are a few workaround for the issue but I still haven't had a chance to test them so I just disables the sound effects on Safari.  
 See [New Video Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) and [Overcoming iOS HTML5 audio limitations](https://www.ibm.com/developerworks/library/wa-ioshtml5/index.html#N1025A)
-
-## Acknowledgments & Disclaimers
 
 ## Acknowledgments & Disclaimers
 

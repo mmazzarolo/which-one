@@ -30,7 +30,7 @@
 
 ### Things I learned while building it
 
-#### TypeScript and MobX works really well together
+#### TypeScript and MobX work really well together
 
 I did try the TypeScript + MobX combo in the past but I wasn't able to type the `inject` as I wanted.  
 In fact, instead of injecting the entire stores, I like to pass to the `inject` a function (`mapStoresToProps`) that allows me to decouple the component/container from the stores, just like with the Redux `mapStateToProps`.  

@@ -54,8 +54,10 @@ See [New Video Policies for iOS](https://webkit.org/blog/6784/new-video-policies
 
 ## Acknowledgments & Disclaimers
 
+## Acknowledgments & Disclaimers
+
 Like a few other projects I published in the past, Which One is not intended to be a serious "game", it's just the result of playing around with new technologies.  
-This also means that, since I didn't test it thoroughly, it might break easily on specific browser or devices.  
-That said, I'm releasing it as Open Source, so if you have any question/issue feel free to use the GitHub for sending PRs or starting issue discussions!
+This also means that, since I didn't test it thoroughly, it might not work on specific browsers or devices.  
+That said, if you have any question/issue feel free to use the GitHub for sending PRs or starting issue discussions!
 
 All the images and icons used in the project are available on [FlatIcon](https://www.flaticon.com/).

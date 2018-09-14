@@ -91,7 +91,7 @@ export default class GameStore {
       (input === "left" && this.currentCard.imageId === this.leftImageId) ||
       (input === "right" && this.currentCard.imageId === this.rightImageId);
     if (inputValid) {
-      soundService.playSwipeSuccessSound();
+      // soundService.playSwipeSuccessSound();
       this.score += 1;
       this.currentCard.validate();
     } else {
